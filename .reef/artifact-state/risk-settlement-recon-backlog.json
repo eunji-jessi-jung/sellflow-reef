@@ -1,0 +1,42 @@
+{
+  "artifact_id": "RISK-SETTLEMENT-RECON-BACKLOG",
+  "snapshot_at": "2026-09-18T22:22:16.354698+00:00",
+  "sources": {
+    "sellflow-docs:context/handover/2025-03_정산팀_인수인계.md": {
+      "hash": "b527733f1ca133a5827ba162535ef8d8eb6b2fa1083fb5a3ce148bdaeba6cc57",
+      "modified": "2026-09-18T14:48:02.560700+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:context/sprints/tickets_2026-S17.csv": {
+      "hash": "f7c49b957b573f4a8301902ba646288c7a5f49b54234f3f17ec37ece442c2454",
+      "modified": "2026-09-18T14:48:02.581332+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/recon/CancelReconciler.java": {
+      "hash": "6e24994dd5ab5cb46838effc95a12b291e03e91914481843e9255c7138cb1f83",
+      "modified": "2026-09-18T14:46:44.715245+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/relay/OrderEventRelayJob.java": {
+      "hash": "b5c841b7b415d9468be1eba2d4f87b2dc8044b507bf2b9806b57b97a28c644ed",
+      "modified": "2026-09-18T14:46:44.707153+00:00"
+    },
+    "sellflow-docs:raw/exports/README.md": {
+      "hash": "1cac838942cb2d6778aad20c911c6caafb3b9f674e2fb5a811541701ef15a871",
+      "modified": "2026-09-18T14:48:02.627743+00:00"
+    },
+    "sellflow-docs:raw/exports/cancel_recon_queue_monthly_20260901.csv": {
+      "hash": "fdf2da3c6a46c04f1d2f2179e38d85aaa720131685be15a6f636edf4f2cb9b36",
+      "modified": "2026-09-18T14:48:02.629603+00:00"
+    },
+    "sellflow-docs:raw/mail/RE_정산_미정정_금액_문의.eml": {
+      "hash": "4be4ddfe2b3619bfa8269a7b531492e60ce954749efc0fb1e8a754867300fb8c",
+      "modified": "2026-09-18T14:48:02.643727+00:00"
+    }
+  }
+}

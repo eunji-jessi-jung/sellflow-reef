@@ -1,0 +1,69 @@
+{
+  "name": "sellflow-reef",
+  "sources": [
+    {
+      "name": "order-service",
+      "path": "../sellflow/repos/order-service"
+    },
+    {
+      "name": "settlement-batch",
+      "path": "../sellflow/repos/settlement-batch"
+    },
+    {
+      "name": "inventory-api",
+      "path": "../sellflow/repos/inventory-api"
+    },
+    {
+      "name": "delivery-bff",
+      "path": "../sellflow/repos/delivery-bff"
+    },
+    {
+      "name": "settlement-anomaly",
+      "path": "../sellflow/repos/settlement-anomaly"
+    },
+    {
+      "name": "sellflow-docs",
+      "path": "sources",
+      "notes": "Company documents held inside the reef: wiki export, OpenAPI spec, tickets, plans, procedures, minutes, handover, postmortem, Slack export, registry, sprints, data exports, spreadsheets. Indexed so artifact citations to them resolve."
+    }
+  ],
+  "created": "2026-09-18T14:47:46.357007+00:00",
+  "version": "1.0.0",
+  "description": "셀플로우 — a Korean e-commerce fulfilment company. Five services handle ordering, daily partner settlement, inventory, delivery lookup and settlement anomaly detection. The reef also covers the company's own documents: wiki export, API spec, tickets, plans, procedures, meeting minutes, a handover, an incident postmortem, chat and mail threads, a service registry, sprint records, data exports and two spreadsheets.",
+  "output_language": "English (quote Korean source text verbatim when citing)",
+  "services": [
+    {
+      "name": "Order",
+      "full_name": "Order & Cancellation",
+      "description": "Customer ordering and cancellation, the outbox that tells settlement a cancel happened",
+      "sources": [
+        "order-service"
+      ]
+    },
+    {
+      "name": "Settlement",
+      "full_name": "Partner Settlement",
+      "description": "Daily partner payout batch, the cancel-reconciliation queue, and anomaly detection over settlement results",
+      "sources": [
+        "settlement-batch",
+        "settlement-anomaly"
+      ]
+    },
+    {
+      "name": "Inventory",
+      "full_name": "Inventory",
+      "description": "Stock levels and restock-on-cancel, which depends on the cancel reason code",
+      "sources": [
+        "inventory-api"
+      ]
+    },
+    {
+      "name": "Delivery",
+      "full_name": "Delivery Lookup",
+      "description": "Carrier status proxy for the app; ownership is unsettled in the registry",
+      "sources": [
+        "delivery-bff"
+      ]
+    }
+  ]
+}

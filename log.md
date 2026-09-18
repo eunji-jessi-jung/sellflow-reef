@@ -1,0 +1,24 @@
+# Reef Evolution Log
+
+**2026-09-18T14:56:24.245444+00:00** — Source extraction: 5 API specs (1 tier-3 stale copy + 1 tier-4 companion + 3 tier-4 code-derived; settlement-batch has no HTTP API), 4 ERDs, 5 infra files extracted
+
+**2026-09-18T15:18:11.052559+00:00** — Snorkel pass: generated 43 artifacts across 5 sources, answered 33/48 discovery questions (11 partial)
+
+**2026-09-18T15:18:32.198475+00:00** — Audit: CON-INVENTORY-SETTLEMENT, CON-DELIVERY-SETTLEMENT and CON-DELIVERY-INVENTORY deliberately not created. Grep across all five repos found no HTTP call, shared schema, event or table reference between those service pairs; the only cross-mention is a stale settlement error string inside delivery-bff's generated order client, which CON-ORDER-DELIVERY covers.
+
+**2026-09-18T15:20:18.650677+00:00** — Audit reports 3 missing service-pair contracts (INVENTORY x SETTLEMENT, DELIVERY x SETTLEMENT, DELIVERY x INVENTORY). Deliberately not created: no integration exists between those pairs, and references/templates/contract-service-pair.md states that pairs with no detected integration do not need a CON- artifact. Architectural separation is the default assumption.
+
+**2026-09-18T17:47:03.049875+00:00** — Scuba Phase 1 resumed: completed batches 5a and 5b — 8 remaining artifacts written (2 PAT, 2 DEC, 4 GLOSSARY); manifest 67/67 complete
+
+**2026-09-18T17:55:42.402831+00:00** — Deep: PROC-SELLFLOW-CANCEL-MONEY-PATH — end-to-end line-by-line trace of the cancel money path (9 hops, 4 proven breaks); cross-linked and corrected PROC-SETTLEMENT-CANCEL-RECON-QUEUE-LIFECYCLE, CON-ORDER-SETTLEMENT, RISK-SETTLEMENT-RECON-BACKLOG, PROC-ORDER-CANCEL
+
+**2026-09-18T18:00:55.944860+00:00** — Test pass found three internal contradictions; all corrected: RISK-SETTLEMENT-RECON-BACKLOG claimed the 2026-09-01 export was 'eight months stale' (it is 17 days); SCH-SETTLEMENT-BATCH inferred 'something reconciles' from PROCESSED-era data the export never returned (it filters STATUS='PENDING'); API-INVENTORY said the port was unset while SYS-INVENTORY and PROC-SELLFLOW-RUNTIME both cite the Dockerfile line that fixes it at 8000.
+
+**2026-09-18T18:01:51.912195+00:00** — Second test slice found three more contradictions, all corrected: PROC-INVENTORY-RESTOCK presented InventoryClient.restore as the live trigger when it has no caller; CON-ORDER-DELIVERY asserted Node 18 while SYS-DELIVERY holds 16-vs-18 open; PAT-SELLFLOW-DOC-CODE-DRIFT cited RISK-SELLFLOW-DOC-DRIFT for a catalogue it does not contain. CLAUDE.md counts corrected 79->80 artifacts, 27->28 PROC-.
+
+**2026-09-18T18:18:22.227763+00:00** — Consistency repair pass over 25 artifacts. CON-ORDER-SETTLEMENT's cancelled-order premise corrected: the settlement reader filters SANGTAE_CD='BAESONG_WANRYO' AND DATE(UPD_DTM)=?, and OrderMst.chwiso() overwrites both, so a cancelled order is excluded incidentally, not settled anyway; the '188,851,520 KRW is not the exposure' conclusion reworked to turn on the export's PENDING-only coverage, its flat 45,760 KRW per-case unit and its staleness. The reader javadoc is now cited as intent, not behaviour, in nine artifacts. Also: DateUtil.settlementBaseDate marked dead code in GLOSSARY-SETTLEMENT; DEC-SELLFLOW-MONEY-ROUNDING's Decision corrected to HALF_UP-everywhere; SCH-ORDER's table-origin and external-reader counts reconciled (3 of 6 tables have DDL here, 3 of 6 have external accessors); SYS-SETTLEMENT's Flyway V1-V6 claim marked unresolved behind V4; four invented V15/V16 revert intervals replaced by the bounded '<=18 days'; DEC-DELIVERY-GENERATED-CLIENT's 45 operations corrected to 32 with API-ORDER's caveat; RISK-SETTLEMENT's 50%->67% and 'two orders of magnitude'->one (~15x); procedure v1.1 role-table citations corrected from S2 to S3 in PROC-SELLFLOW-OWNERSHIP; and twelve bookkeeping contradictions settled, including V13 (DROP COLUMN IF EXISTS is unsupported on MySQL 5.7, so it fails rather than no-ops, making six migrations that cannot apply to a clean database).
+
+**2026-09-18T21:31:18.961119+00:00** — Owner question bank: 17 questions from 195 unknowns across 32 artifacts (second pass; 48 artifacts were already deposited). 5 unknowns resolved from sources and dropped from SCH-DELIVERY and PROC-ORDER-ORDER-MST-LIFECYCLE.
+
+**2026-09-18T22:17:46.815964+00:00** — Update: refreshed 23 artifacts, skipped 1, added 4 questions — order-service migration chain now self-consistent, inventory-api alembic chain runnable
+

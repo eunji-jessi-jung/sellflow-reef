@@ -1,0 +1,66 @@
+{
+  "artifact_id": "API-INVENTORY",
+  "snapshot_at": "2026-09-18T22:22:09.382411+00:00",
+  "sources": {
+    "inventory-api:.env.sample": {
+      "hash": "90072dfb1069fe914eea5394ed98676e2b56b98218ccaf782d6050d9b9f0aa9b",
+      "modified": "2026-09-18T14:46:44.629460+00:00"
+    },
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:app/models.py": {
+      "hash": "92630eabca05f71264c599a61e6462574e775ee3a249aac81be86fc2234c03b0",
+      "modified": "2026-09-18T14:46:44.625854+00:00"
+    },
+    "inventory-api:app/routers.py": {
+      "hash": "6d4e73532a7a437933f36a3a1e13e1f9219460d82b89306b979e8c64a818413c",
+      "modified": "2026-09-18T14:46:44.627501+00:00"
+    },
+    "inventory-api:requirements.txt": {
+      "hash": "971987058950d4ebd887522e99f4ae8dc63f3e61906bc547250a8bfe4bb140ea",
+      "modified": "2026-09-18T21:41:41.787629+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "inventory-api:tests/test_health.py": {
+      "hash": "a2da4ce492538f2fe53f800257fc352b2753eb1493edf6ef61c015907dd94c9b",
+      "modified": "2026-09-18T14:46:44.633167+00:00"
+    },
+    "inventory-api:tests/test_restore.py": {
+      "hash": "d9ab38878bdebd99eda68ed35da9c7ddc8d92cbeb1adf1127b760f315e404fc1",
+      "modified": "2026-09-18T14:46:44.634151+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "sellflow-docs:apis/inventory/openapi.json": {
+      "hash": "f9d240baa7103612cf730d328d19037e0984867168e007731d955889452641a4",
+      "modified": "2026-09-18T14:50:56.126149+00:00"
+    },
+    "sellflow-docs:apis/inventory/openapi.meta.json": {
+      "hash": "5ff0d05a2b189dad8fba29f545d5bc6fec83b86319fb03695e99d2feeea882f8",
+      "modified": "2026-09-18T14:51:06.854793+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    }
+  }
+}

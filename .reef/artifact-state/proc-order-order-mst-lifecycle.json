@@ -1,0 +1,86 @@
+{
+  "artifact_id": "PROC-ORDER-ORDER-MST-LIFECYCLE",
+  "snapshot_at": "2026-09-18T22:22:14.109274+00:00",
+  "sources": {
+    "order-service:README.md": {
+      "hash": "6d836340e897462c3e4542dc92eb749182db3fa2cf06ab6ce60662083c6228fa",
+      "modified": "2026-09-18T14:46:44.733691+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/controller/OrderController.java": {
+      "hash": "8b10a946c45ced803e74733bbfb4d190628bf511d4aa0337eefba3a7a6223bc2",
+      "modified": "2026-09-18T14:46:44.820911+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderMst.java": {
+      "hash": "d887c5b98c6f58eb0dd65ba3202942c15ec0a1d65b316b6b2d0a5b6daad146b9",
+      "modified": "2026-09-18T21:41:41.780805+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatusHistory.java": {
+      "hash": "cb71f190337188db8cdc75de6b1fe090ef57c8345d0fa4f9b1532735241e7a76",
+      "modified": "2026-09-18T14:46:44.840575+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/legacy/OrderCancelServiceV1.java": {
+      "hash": "688c132020d0624909c970876fa5faa9d5485d652639fa1a80242f288bee53a0",
+      "modified": "2026-09-18T14:46:44.818950+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/search/OrderSearchService.java": {
+      "hash": "dafc85814564774d43c4deedda04314d798485569c52b403002249e869a55374",
+      "modified": "2026-09-18T14:46:44.822737+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderStatusService.java": {
+      "hash": "c42858d8a701126762561f3af0412885da2b9716c1af750adfa08a0627aece0c",
+      "modified": "2026-09-18T21:41:41.783088+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V10__add_split_merge.sql": {
+      "hash": "bcdb139dc1151aed7cb323d06f9dd9b71aaeb97b29a8234a63acd27638d916d1",
+      "modified": "2026-09-18T14:46:44.795459+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V14__add_settlement_ref.sql": {
+      "hash": "c100001ffb038033348b338ca437a5ce348c12ec14fad791dbd6b1b17bce335d",
+      "modified": "2026-09-18T14:46:44.796497+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V21__add_settlement_ref_index.sql": {
+      "hash": "4f76da16954e85ed8dff4a95234500ac7d7440ac9f1bfcd7708510d64bfaf370",
+      "modified": "2026-09-18T21:41:24.324802+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    },
+    "sellflow-docs:schemas/order/schema.md": {
+      "hash": "2d5a30527faf64dfd7a126b725f0a73bb05990fc9cf6b5cb0c8a815c921b190d",
+      "modified": "2026-09-18T14:53:32.505317+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/config/DailySettlementJobConfig.java": {
+      "hash": "9b8fcf301821da4ba31994aec7894e87d811db93cb7959bed51f574ca76df28e",
+      "modified": "2026-09-18T14:46:44.694762+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    }
+  }
+}

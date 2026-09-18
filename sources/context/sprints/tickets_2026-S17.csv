@@ -1,0 +1,6 @@
+Issue Type,Issue key,Issue id,Summary,Status,Priority,Assignee,Reporter,Story Points,Created,Resolved
+Story,SF-5120,15120,정산 정정 대기열 조회 화면,In Progress,High,이수민,김도윤,5,2026-08-24,
+Task,SF-5121,15121,정정 판정 기준 정의,To Do,High,한지우,김도윤,3,2026-08-24,
+Task,SF-5099,15099,정산 배치 실행 이력 알림 개선,Done,Medium,박성민,박성민,2,2026-08-11,2026-09-02
+Bug,SF-5088,15088,파트너 정산 금액 문의 (8월),Done,Medium,이수민,최은영,1,2026-08-06,2026-08-19
+Task,SF-4512,14512,CancelReconciler Quartz 스케줄 등록,To Do,Low,,김도윤,,2023-04-24,

@@ -1,0 +1,70 @@
+{
+  "artifact_id": "PROC-ORDER-CANCEL",
+  "snapshot_at": "2026-09-18T22:22:13.697040+00:00",
+  "sources": {
+    "order-service:README.md": {
+      "hash": "6d836340e897462c3e4542dc92eb749182db3fa2cf06ab6ce60662083c6228fa",
+      "modified": "2026-09-18T14:46:44.733691+00:00"
+    },
+    "order-service:TASK.md": {
+      "hash": "ea25de3c8544d204d3dda8ab02b78d1f00a1272d79e2935c085c361d9ce413ee",
+      "modified": "2026-09-18T14:46:44.747294+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderCancel.java": {
+      "hash": "33713996fe4c167e304b13452f53d2879f11baa4bb5791d9c7d89ffd39d39425",
+      "modified": "2026-09-18T14:46:44.837543+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderMst.java": {
+      "hash": "d887c5b98c6f58eb0dd65ba3202942c15ec0a1d65b316b6b2d0a5b6daad146b9",
+      "modified": "2026-09-18T21:41:41.780805+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatusHistory.java": {
+      "hash": "cb71f190337188db8cdc75de6b1fe090ef57c8345d0fa4f9b1532735241e7a76",
+      "modified": "2026-09-18T14:46:44.840575+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/event/OrderEventPublisher.java": {
+      "hash": "7496e53cb0965305a7a486f8eaf0e90fa38045b14e530ae5a91f3ff832e2a3c0",
+      "modified": "2026-09-18T14:46:44.847030+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/payment/PaymentClient.java": {
+      "hash": "426e1e3f57d20e7f11b6345a966c526d08f9481ed7d221c54f1c431268b2230a",
+      "modified": "2026-09-18T14:46:44.815086+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderStatusService.java": {
+      "hash": "c42858d8a701126762561f3af0412885da2b9716c1af750adfa08a0627aece0c",
+      "modified": "2026-09-18T21:41:41.783088+00:00"
+    }
+  }
+}

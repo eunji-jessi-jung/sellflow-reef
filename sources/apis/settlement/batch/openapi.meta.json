@@ -1,0 +1,32 @@
+{
+  "service": "settlement",
+  "sub": "batch",
+  "source_repo": "settlement-batch",
+  "extraction_tier": 4,
+  "extraction_method": "structured code reading — no HTTP API found",
+  "source_path": "src/main/java/kr/co/sellflow/settlement",
+  "extracted_at": "2026-09-18T00:00:00Z",
+  "api": null,
+  "reason": "settlement-batch exposes no HTTP surface. build.gradle declares spring-boot-starter-batch, -quartz and -jdbc but NOT spring-boot-starter-web, and there is no @RestController or @Controller in the repo. No openapi.json is written for this app. Its invocable surface is Quartz triggers, documented in sources/infra/settlement/runtime.md and queues.md.",
+  "jobs": [
+    {
+      "name": "dailySettlementJob",
+      "trigger": "Quartz cron 0 0 2 * * ? (Asia/Seoul), JobDetail dailySettlementQuartzJob",
+      "steps": ["settlementStep (chunk 500: JdbcCursorItemReader -> SettlementItemProcessor -> SettlementItemWriter)", "markSettledStep (MarkSettledTasklet)"],
+      "job_parameters": ["jungsanIlja (string)", "ts (long, uniqueness)"]
+    },
+    {
+      "name": "orderEventRelayJob",
+      "trigger": "Quartz simple schedule, every 10 minutes, repeat forever",
+      "note": "Not a Spring Batch job — a QuartzJobBean polling ORDER_EVENT_OUTBOX directly."
+    }
+  ],
+  "uncertainties": [
+    "CancelReconciler (@Component, recon/CancelReconciler.java) is the code that drains CANCEL_RECON_QUEUE, but nothing invokes reconcileCancellations(). Its own TODO says so: 'TODO Quartz 스케줄 등록 필요 (박성민님 확인 후 QuartzConfig 에 추가 예정) - 2023-04-24 김도윤'. QuartzConfig registers only dailySettlement and orderEventRelay. As the code stands, CANCEL_RECON_QUEUE rows accumulate in PENDING and are never processed automatically.",
+    "SettlementReportWriter (@Component) is likewise never called by any job step; its write(runId) only logs. TODO(도윤) 2024-11-02 notes cancel adjustments are not in the report.",
+    "Job-parameter date and reader date disagree with DateUtil. DailySettlementQuartzJob passes LocalDate.now().minusDays(1).toString() — system default zone, ISO format yyyy-MM-dd — while DateUtil.settlementBaseDate() implements KST plus a before-02:00 minus-two-days rule and formats yyyyMMdd. DateUtil is never called by the job. The reader compares DATE(m.UPD_DTM) = ?, so the format mismatch is load-bearing.",
+    "Fee rate: SettlementItemProcessor hardcodes DEFAULT_FEE_RATE 0.12 with HALF_UP rounding and ignores PARTNER_CONTRACT.FEE_RATE entirely ('현재는 기본 수수료율만 적용한다. (2021년 이후 미정비)'). PartnerContractRepository is never called. Separately, MoneyUtil.fee uses FLOOR — 'order-service 에도 같은 이름의 클래스가 있으나 반올림 기준이 다르다. 정산은 절사(FLOOR), 주문은 반올림(HALF_UP). 2022 협의 결과이며 문서화되어 있지 않다.' — and MoneyUtil is itself unused, so the two roundings inside this repo disagree too.",
+    "SettlementItemWriter.currentRunId() does SELECT MAX(RUN_ID) FROM SETTLEMENT_RUN WHERE SANGTAE='RUNNING'; nothing in this repo ever INSERTs into SETTLEMENT_RUN or sets SANGTAE, so the run row's creator is unidentified.",
+    "The reader selects orders by SANGTAE_CD='BAESONG_WANRYO' AND DATE(UPD_DTM)=:date and deliberately ignores cancellation state ('주문의 현재 상태나 취소 여부는 조건에 포함하지 않는다')."
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-09-19T00:00:00+00:00",
+  "reef": "sellflow-reef",
+  "source_index_at": "2026-09-19T00:00:00+00:00",
+  "sources_pulled": "none — no source is a git repository",
+  "source_changes": {
+    "order-service": {
+      "files_changed": 10,
+      "semantic_summary": "A correction pass made the Flyway chain self-consistent. V1 now also creates ORDER_DELIVERY and ORDER_STATUS_HIST and carries TEMP_FLAG; V13, V18, V20, V21, V22 and V24 were corrected to name columns earlier migrations actually create, so V1-V24 applies cleanly to an empty database. V23 remains DDL-free but its comment now states honestly that the consolidated dump was never written. OrderMst gained byeongyeong(OrderStatus) so OrderStatusService compiles; OrderItem was remapped onto ORDER_DTL's real columns with a composite @IdClass PK."
+    },
+    "inventory-api": {
+      "files_changed": 3,
+      "semantic_summary": "The alembic chain became runnable: 3f9a is now the base (down_revision None), imports op and sqlalchemy, creates RESTORE_LOG with six real columns and an index on ORD_NO; 8ba1 creates the SAYU_CD index its name promises; requirements.txt gained sqlalchemy and alembic. RESTORE_LOG still has no writer."
+    },
+    "settlement-batch": {
+      "files_changed": 0,
+      "semantic_summary": "No changes."
+    },
+    "settlement-anomaly": {
+      "files_changed": 0,
+      "semantic_summary": "No changes."
+    },
+    "delivery-bff": {
+      "files_changed": 0,
+      "semantic_summary": "No changes."
+    },
+    "sellflow-docs": {
+      "files_changed": 0,
+      "semantic_summary": "No changes."
+    }
+  },
+  "items": [
+    {
+      "n": 1,
+      "type": "refresh",
+      "artifact": "SCH-ORDER",
+      "summary": "Six tables now all have DDL in V1/V8; V1-V24 applies cleanly. OrderItem maps ORDER_DTL's real columns under a composite @IdClass key. Removed 4 known_unknowns (phantom columns, ORDER_DTL English names, ORDER_DELIVERY/ORDER_STATUS_HIST origin, CHAENNEL_CD vs INFLOW_CHNL); rewrote both entity-only table sections with real types; corrected the V18 and V22 column names.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 2,
+      "type": "refresh",
+      "artifact": "SCH-ORDER-MIGRATION-HISTORY",
+      "summary": "The 'six migrations cannot apply' thesis is withdrawn — the chain is self-contained. Rewrote the overview, 6 Key Facts, 10 timeline rows, all three per-table tables, the ER diagram and the information_schema worked example. Removed 3 known_unknowns, added one about environment reconciliation and one about why TEMP_FLAG existed.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 3,
+      "type": "refresh",
+      "artifact": "SCH-INVENTORY",
+      "summary": "RESTORE_LOG now has a six-column DDL and two indexes; replaced the 'broken migration chain' section with the real column table and a narrowed 'what still does not line up'. Removed 4 known_unknowns, added 3.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 4,
+      "type": "refresh",
+      "artifact": "RISK-INVENTORY",
+      "summary": "Findings 8/9/10 replaced: the alembic base, the unimported op and the empty revision are fixed; env.py's missing runner, the alembic.ini/app.db database split and the RestoreLog dataclass drift take their place. 'No audit by three mechanisms' becomes 'no audit for one reason'.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 5,
+      "type": "refresh",
+      "artifact": "SYS-INVENTORY",
+      "summary": "requirements.txt is five pins, not three; the alembic chain resolves but has no runner; RESTORE_LOG's columns listed. Two known_unknowns rewritten.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 6,
+      "type": "refresh",
+      "artifact": "GLOSSARY-INVENTORY",
+      "summary": "Added LOG_SEQ, SKU, SURYANG and SAYU_CD as real terms; rewrote the RESTORE_LOG, 3f9a and 8ba1 entries; removed the 1c22 entry.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 7,
+      "type": "refresh",
+      "artifact": "PROC-INVENTORY-AUTH",
+      "summary": "requirements.txt now pins five packages; the absence claim is unchanged and re-stated against the new list.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 8,
+      "type": "refresh",
+      "artifact": "PROC-INVENTORY-ERROR-HANDLING",
+      "summary": "The audit-trail finding narrows to the missing INSERT; alembic known_unknown rewritten.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 9,
+      "type": "refresh",
+      "artifact": "PROC-INVENTORY-RESTORE-LOG-LIFECYCLE",
+      "summary": "Largest rewrite on the inventory side: Fields section replaced with the real six-column table, Creation Path rewritten around env.py and alembic.ini rather than three broken revisions, States table rebuilt, worked example query rewritten, Agent Guidance updated. Also removed an absolute home-directory path from the method section.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 10,
+      "type": "refresh",
+      "artifact": "PROC-ORDER-ORDER-MST-LIFECYCLE",
+      "summary": "The 'this tree does not compile' finding is withdrawn: OrderMst.byeongyeong(OrderStatus) exists and OrderStatusService calls it. V21 indexes JUNGSAN_RUN_ID. TEMP_FLAG added to the field table as created-then-dropped; column count corrected from 16 to 14.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 11,
+      "type": "refresh",
+      "artifact": "PROC-ORDER-CANCEL",
+      "summary": "OrderStatusService compiles and still has no caller; ORDER_STATUS_HIST has DDL and no writer.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 12,
+      "type": "refresh",
+      "artifact": "RISK-ORDER",
+      "summary": "Theme F4 rescored 9 -> 5 and retitled 'Schema and migration residue'. The four broken-migration facts replaced with three unused-index facts; OrderItem facts rewritten; ORD_DT is now the only phantom column named by production code. Recommended action 3 rewritten.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 13,
+      "type": "refresh",
+      "artifact": "GLOSSARY-ORDER",
+      "summary": "Phantom-column table cut from six rows to two (ORD_DT, BAESONG_MSG) with a note on the four that resolved; ORD_SEQ/SANGPUM_CD/SURYANG/DANGA entries rewritten; JEOKRIPGEUM marked dropped by V20; the SKU_CD conflict row replaced by the cross-service one.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 14,
+      "type": "refresh",
+      "artifact": "PROC-ORDER-ORDER-CANCEL-LIFECYCLE",
+      "summary": "V18 and V22 now run; index is (CHORI_SANGTAE, CHWISO_ILSI); CHNL_CD provenance restated against CHAENNEL_CD. One known_unknown removed.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 15,
+      "type": "refresh",
+      "artifact": "PAT-SELLFLOW-ROMANISED-NAMING",
+      "summary": "The JEOKRIPGEUM/JEOKLIP_AMT example no longer holds; replaced with TAEKBAESA_CD/TAKBAE_CD (both real, both in V1's file set) and RESTORE_LOG's intra-table mix of both conventions.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 16,
+      "type": "refresh",
+      "artifact": "PAT-SELLFLOW-ORPHANED-COMPONENTS",
+      "summary": "The pattern is strengthened, not weakened: the objects that used to lack DDL now have it and still have no caller. Schema-object count 13 -> 12; RESTORE_LOG, ORDER_DELIVERY and ORDER_STATUS_HIST rows rewritten; phantom-column rows replaced with unused-index rows.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 17,
+      "type": "refresh",
+      "artifact": "GLOSSARY-SOURCE-INDEX",
+      "summary": "Created-table count 12 -> 14; uncreated-table count 3 -> 1 (SETTLEMENT_ADJUSTMENT only); seven rows removed from the 'referenced but never created' table; the ORDER_DTL conflict rows replaced with the cross-service product/quantity ones and a new DDL-vs-dataclass row for RESTORE_LOG.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 18,
+      "type": "refresh",
+      "artifact": "GLOSSARY-SELLFLOW",
+      "summary": "Channel, product, quantity, points and option spelling families updated; the _DT paragraph rewritten around REG_DT being real on ORDER_STATUS_HIST.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 19,
+      "type": "refresh",
+      "artifact": "SCH-DELIVERY",
+      "summary": "ORDER_DELIVERY is created by V1 with full column types; the DDL-absence finding withdrawn and replaced with a no-reader/no-writer finding.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 20,
+      "type": "refresh",
+      "artifact": "SYS-ORDER",
+      "summary": "Migration caveat in freshness_note withdrawn; the OrderStatusService known_unknown rewritten; the three-status-writers paragraph updated.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 21,
+      "type": "refresh",
+      "artifact": "RISK-ORDER-DISABLED-TESTS",
+      "summary": "Finding 8 restated: the test is weak because it asserts the lookup, not because the service call is unresolvable.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 22,
+      "type": "refresh",
+      "artifact": "DEC-SELLFLOW-SHARED-DB",
+      "summary": "Freshness only — OrderStatusService changed but its carve-out javadoc and MarkSettledTasklet are unchanged, so every claim stands.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 23,
+      "type": "refresh",
+      "artifact": "PROC-ORDER-ERROR-HANDLING",
+      "summary": "Freshness only — the silent ifPresent no-op is unchanged.",
+      "status": "applied",
+      "applied_at": "2026-09-19T00:00:00+00:00"
+    },
+    {
+      "n": 24,
+      "type": "refresh",
+      "artifact": "SYS-SETTLEMENT-ANOMALY",
+      "summary": "Flagged by diff via 'inventory-api:requirements.txt', which the source-artifact map attributes to this artifact because its freshness_trigger is a bare 'requirements.txt'. settlement-anomaly's own requirements.txt is unchanged. No edit made.",
+      "status": "skipped",
+      "reason": "false positive in the source-artifact map"
+    }
+  ],
+  "new_questions": [
+    "Q-049",
+    "Q-050",
+    "Q-051",
+    "Q-052"
+  ],
+  "notes": "The diff reported 13 affected artifacts. Seven more were found to carry now-false claims by grepping the artifact tree for the corrected identifiers; they are invisible to `reef.py diff` because 34 of the 80 artifacts have no snapshot under .reef/artifact-state/. All are included above."
+}

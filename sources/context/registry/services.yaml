@@ -1,0 +1,52 @@
+# 서비스 레지스트리
+#
+# 이 파일이 서비스·소유팀·저장소의 단일 기준이다. 신규 서비스는 여기에 먼저 등록한다.
+# 담당자 정보는 org-chart 를 따르며 여기에는 팀만 적는다.
+#
+# last_reviewed: 2026-03-02   # 이후 갱신 없음
+
+services:
+  - name: order-service
+    repo: sellflow/order-service
+    owner_team: 주문팀
+    runtime: Spring Boot 2.3 / Java 8
+    db: MySQL (order)
+    endpoints:
+      - https://api.sellflow.co.kr/orders
+    notes: 취소 API 포함. 2.8.0 에서 취소 로직 교체됨.
+
+  - name: settlement-batch
+    repo: sellflow/settlement-batch
+    owner_team: 정산팀
+    runtime: Spring Batch / Quartz
+    db: MySQL (settlement)
+    schedule: 매일 02:00 KST
+    notes: 일 정산. 아웃박스 릴레이 잡 동거.
+
+  - name: inventory-api
+    repo: sellflow/inventory-api
+    owner_team: 재고팀
+    runtime: FastAPI / Python 3.9
+    db: MySQL (inventory)
+
+  - name: delivery-bff
+    repo: sellflow/delivery-bff
+    owner_team: TODO   # 물류팀 이관 논의 중 (2025-11~), 확정 전
+    runtime: Node 16 / TypeScript
+    db: none
+
+  - name: settlement-anomaly
+    repo: sellflow/settlement-anomaly
+    owner_team: 데이터팀
+    runtime: FastAPI / Python 3.11
+    db: MySQL (settlement)
+    notes: 이상 탐지만 수행. 조치 주체는 정의되어 있지 않음. TODO
+
+queues:
+  - name: CANCEL_RECON_QUEUE
+    producer: settlement-batch (OrderEventRelayJob)
+    consumer: TODO   # 확인 필요
+    notes: 정산 이후 취소 건 적재.
+  - name: ORDER_EVENT_OUTBOX
+    producer: order-service
+    consumer: settlement-batch (OrderEventRelayJob)

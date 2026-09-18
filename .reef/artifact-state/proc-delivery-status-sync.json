@@ -1,0 +1,26 @@
+{
+  "artifact_id": "PROC-DELIVERY-STATUS-SYNC",
+  "snapshot_at": "2026-09-18T22:22:12.958830+00:00",
+  "sources": {
+    "delivery-bff:.env.template": {
+      "hash": "9011322baafbcf5e8d7af5fedd0005e7fe7b629e5cd516f1f050c7e88897687d",
+      "modified": "2026-09-18T14:46:44.719986+00:00"
+    },
+    "order-service:README.md": {
+      "hash": "6d836340e897462c3e4542dc92eb749182db3fa2cf06ab6ce60662083c6228fa",
+      "modified": "2026-09-18T14:46:44.733691+00:00"
+    },
+    "delivery-bff:src/deliveryStatus.ts": {
+      "hash": "fd6cbc7340a898e95737c2a07e8d3fd9a09739dd19c877174997d076202a3281",
+      "modified": "2026-09-18T14:46:44.727769+00:00"
+    },
+    "delivery-bff:src/index.ts": {
+      "hash": "30a378066119a1773522831c39fd819d09551021b8ccd38fe3c6925ec08c813d",
+      "modified": "2026-09-18T14:46:44.728620+00:00"
+    },
+    "delivery-bff:src/logger.ts": {
+      "hash": "95adf79d963c2d8e0003e64e82b62ceff8c6314aa27d81cfac56a95ef7faa721",
+      "modified": "2026-09-18T14:46:44.726891+00:00"
+    }
+  }
+}

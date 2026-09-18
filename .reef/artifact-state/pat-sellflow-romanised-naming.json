@@ -1,0 +1,34 @@
+{
+  "artifact_id": "PAT-SELLFLOW-ROMANISED-NAMING",
+  "snapshot_at": "2026-09-18T22:22:12.631829+00:00",
+  "sources": {
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V3__add_channel_code.sql": {
+      "hash": "8f621d6a52c3f56cd5d56f69166b06b749d14eed6632fbd9fc0e4d2125beb035",
+      "modified": "2026-09-18T14:46:44.794549+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    }
+  }
+}

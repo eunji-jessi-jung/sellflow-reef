@@ -1,0 +1,42 @@
+{
+  "artifact_id": "DEC-SELLFLOW-2026-AUTOMATION-SIZING",
+  "snapshot_at": "2026-09-18T22:22:10.766413+00:00",
+  "sources": {
+    "sellflow-docs:context/_archive/2024_정산정정_자동화_검토안_초안.md": {
+      "hash": "31b4d05cf959ca5da61054940328ba441f1f16f313452a430c439069dcb59ba1",
+      "modified": "2026-09-18T14:48:02.602795+00:00"
+    },
+    "sellflow-docs:context/minutes/2026-06-18_정산정정_자동화_킥오프.md": {
+      "hash": "4f60a41b920b2112f6ca1438c56dcaf4da06b6dbc7a0e06b5068a10452ac352d",
+      "modified": "2026-09-18T14:48:02.549968+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/plans/2026_정산정정_AI에이전트_자동화_기획.md": {
+      "hash": "bc043d11105258c28b7e7d7714afc94ea6fc391fdebf88cfe362fdc15d889963",
+      "modified": "2026-09-18T14:48:02.542861+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v0.3.md": {
+      "hash": "e1ed304951f013cbe61c5265c8e4be496b93901ee316a86688f63b341d0b632f",
+      "modified": "2026-09-18T14:48:02.533659+00:00"
+    },
+    "sellflow-docs:context/sprints/2026-S17_log.md": {
+      "hash": "e4d87997e624974d38bb46ca217962b9c0b2cfa5323be3c2fe7d0f40ea97f361",
+      "modified": "2026-09-18T14:48:02.578479+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/exports/cancel_recon_queue_monthly_20260901.csv": {
+      "hash": "fdf2da3c6a46c04f1d2f2179e38d85aaa720131685be15a6f636edf4f2cb9b36",
+      "modified": "2026-09-18T14:48:02.629603+00:00"
+    },
+    "sellflow-docs:raw/slack/settlement-dev_2023-04_2026-08.json": {
+      "hash": "c4e302a269304d7f1eeeb8dbba3db99ef099f5ddf9ba00663699fd4f2fa6550d",
+      "modified": "2026-09-18T14:48:02.635982+00:00"
+    }
+  }
+}

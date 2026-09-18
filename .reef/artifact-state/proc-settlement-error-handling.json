@@ -1,0 +1,50 @@
+{
+  "artifact_id": "PROC-SETTLEMENT-ERROR-HANDLING",
+  "snapshot_at": "2026-09-18T22:22:15.271371+00:00",
+  "sources": {
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:context/sprints/tickets_2026-S17.csv": {
+      "hash": "f7c49b957b573f4a8301902ba646288c7a5f49b54234f3f17ec37ece442c2454",
+      "modified": "2026-09-18T14:48:02.581332+00:00"
+    },
+    "sellflow-docs:infra/settlement/queues.md": {
+      "hash": "7bfec542ee1b37e2ac04c9ea476a99b444285b5c190478bd15ab65e238c8935e",
+      "modified": "2026-09-18T14:55:19.427561+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/config/DailySettlementJobConfig.java": {
+      "hash": "9b8fcf301821da4ba31994aec7894e87d811db93cb7959bed51f574ca76df28e",
+      "modified": "2026-09-18T14:46:44.694762+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/DailySettlementQuartzJob.java": {
+      "hash": "9eeabfcea130727e395eb7bdbff82223b9a9f37132b71ce6264e6653d63747e2",
+      "modified": "2026-09-18T14:46:44.702257+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemWriter.java": {
+      "hash": "8823fd645c1d4b6f058b8dad5ba0ac2046e162703555183f172b2e8c741a8e32",
+      "modified": "2026-09-18T14:46:44.700820+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/relay/OrderEventRelayJob.java": {
+      "hash": "b5c841b7b415d9468be1eba2d4f87b2dc8044b507bf2b9806b57b97a28c644ed",
+      "modified": "2026-09-18T14:46:44.707153+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    },
+    "settlement-batch:src/main/resources/application.yml": {
+      "hash": "690f6dea321bd0f292ad1628a84ad7243dbb958148d6b77aaec278484100827a",
+      "modified": "2026-09-18T14:46:44.686110+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V2__add_settlement_run_log.sql": {
+      "hash": "87af3d1f7139b2e1fcc960d93b63d44cba941f63d3231d90ba6d0c5f1bedf2fe",
+      "modified": "2026-09-18T14:46:44.679696+00:00"
+    }
+  }
+}

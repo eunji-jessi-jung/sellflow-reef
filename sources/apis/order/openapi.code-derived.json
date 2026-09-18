@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "order-service API (code-derived)",
+    "version": "2.8.14",
+    "description": "Extracted by reading Spring controllers directly (tier 4). This is the CURRENT, verifiable surface of order-service: only two @RestController classes exist in src/main/java/kr/co/sellflow/order. The neighbouring openapi.json is a 2022 springdoc artefact retained for reference but is stale — see openapi.meta.json. Version taken from SERVER_VERSION (2.8.14); build.gradle still declares 2.8.4."
+  },
+  "servers": [
+    {
+      "url": "http://order-service.internal:8081",
+      "description": "server.port=8081 from application.yml; no context-path configured"
+    }
+  ],
+  "tags": [
+    {"name": "Order", "description": "OrderController"},
+    {"name": "Order Search", "description": "OrderSearchController — CS admin"}
+  ],
+  "paths": {
+    "/orders/{ordNo}/cancel": {
+      "post": {
+        "tags": ["Order"],
+        "summary": "주문 취소 (cancel an order)",
+        "operationId": "cancel",
+        "description": "OrderController.cancel -> OrderCancelService.cancel. Blocks only orders already in CHWISO or BANPUM; JUNGSAN_WANRYO (settled) orders ARE cancellable since SF-2287. Writes ORDER_CANCEL, flips ORDER_MST.SANGTAE_CD to CHWISO, and appends an order.cancelled row to ORDER_EVENT_OUTBOX.",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string", "maxLength": 20},
+            "description": "주문번호"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/CancelRequest"}
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "취소 완료. Empty body (ResponseEntity<Void>)."},
+          "404": {
+            "description": "OrderNotFoundException — GlobalExceptionHandler",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/ErrorResponse"}}}
+          },
+          "409": {
+            "description": "OrderCancelNotAllowedException — order is already CHWISO or BANPUM. GlobalExceptionHandler comment: \"409 로 내려간다. API 스펙 문서와 상태코드는 여기 기준.\"",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/ErrorResponse"}}}
+          },
+          "500": {"description": "Unknown sayuCd raises IllegalArgumentException in CancelReason.of — unhandled, so it surfaces as 500."}
+        }
+      }
+    },
+    "/api/v1/orders/search": {
+      "get": {
+        "tags": ["Order Search"],
+        "summary": "CS 어드민 주문 검색",
+        "operationId": "search",
+        "description": "OrderSearchController.search -> OrderSearchService. Javadoc states a 3-month maximum range (\"기간 최대 3개월\") but no code enforces it. Under /api/** so WebConfig CORS restricts browser origins to https://admin.sellflow.co.kr.",
+        "parameters": [
+          {"name": "from", "in": "query", "required": true, "schema": {"type": "string"}, "description": "ORD_DT 조회 시작일"},
+          {"name": "to", "in": "query", "required": true, "schema": {"type": "string"}, "description": "ORD_DT 조회 종료일"},
+          {"name": "sangtaeCd", "in": "query", "required": false, "schema": {"type": "string"}, "description": "주문상태코드 필터 (optional)"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List<OrderMst>. NOTE: the JdbcTemplate RowMapper is `(rs, i) -> null`, so every element is null at runtime.",
+            "content": {
+              "application/json": {
+                "schema": {"type": "array", "items": {"$ref": "#/components/schemas/OrderMst"}}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CancelRequest": {
+        "type": "object",
+        "description": "OrderController.CancelRequest inner class.",
+        "properties": {
+          "sayuCd": {
+            "type": "string",
+            "enum": ["01", "02", "03", "04"],
+            "description": "취소 사유 코드. CancelReason: 01 파트너 귀책, 02 시스템 오류, 03 고객 변심, 04 배송 실패."
+          },
+          "bigo": {"type": "string", "maxLength": 2000, "description": "비고 (ORDER_CANCEL.BIGO)"}
+        },
+        "required": ["sayuCd"]
+      },
+      "OrderMst": {
+        "type": "object",
+        "properties": {
+          "ordNo": {"type": "string", "maxLength": 20},
+          "gogaekId": {"type": "string", "maxLength": 20},
+          "jumunIlsi": {"type": "string", "format": "date-time"},
+          "sangtaeCd": {"$ref": "#/components/schemas/OrderStatus"},
+          "chongGeumaek": {"type": "number"},
+          "baesongJuso": {"type": "string", "maxLength": 500}
+        }
+      },
+      "OrderStatus": {
+        "type": "string",
+        "enum": ["GYEOLJE_WANRYO", "SANGPUM_JUNBI", "BAESONG_JUNG", "BAESONG_WANRYO", "JUNGSAN_WANRYO", "CHWISO", "BANPUM"],
+        "description": "결제완료 / 상품준비중 / 배송중 / 배송완료 / 정산완료 / 취소 / 반품. JUNGSAN_WANRYO is written only by settlement-batch's MarkSettledTasklet, never by this service."
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {"message": {"type": "string"}},
+        "description": "GlobalExceptionHandler returns Map.of(\"message\", ...)."
+      }
+    }
+  }
+}

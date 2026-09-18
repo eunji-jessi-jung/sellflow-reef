@@ -1,0 +1,86 @@
+{
+  "artifact_id": "DEC-SETTLEMENT-ANOMALY-STANDALONE",
+  "snapshot_at": "2026-09-18T22:22:11.098248+00:00",
+  "sources": {
+    "order-service:src/main/resources/db/migration/V15__rename_bigo_to_memo.sql": {
+      "hash": "8870bbad7bc35e26ffd3639125a3ab8078f545155c97e8dc991e81f83979cb25",
+      "modified": "2026-09-18T14:46:44.775606+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V16__revert_rename_bigo.sql": {
+      "hash": "ca9450e4f01a237cf952645a941b40b29149027819bc0bd7d075a615feec6641",
+      "modified": "2026-09-18T14:46:44.779913+00:00"
+    },
+    "sellflow-docs:apis/settlement/anomaly/openapi.json": {
+      "hash": "000ecfebe52bc75d2d29b98983b28bad19493edaf41e82a0040f5d147f98d913",
+      "modified": "2026-09-18T14:51:49.441547+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:infra/settlement/queues.md": {
+      "hash": "7bfec542ee1b37e2ac04c9ea476a99b444285b5c190478bd15ab65e238c8935e",
+      "modified": "2026-09-18T14:55:19.427561+00:00"
+    },
+    "sellflow-docs:infra/settlement/runtime.md": {
+      "hash": "249cf74a8cba87a61887dbdb7b6fe414254f021d40f751ceb8cb9afc69025bce",
+      "modified": "2026-09-18T14:55:37.908994+00:00"
+    },
+    "settlement-anomaly:.env.template": {
+      "hash": "191a6a5bfe70cd78d6bb1e625cee7fc6a2233c6f2a1191257956ae3705966711",
+      "modified": "2026-09-18T14:46:44.858183+00:00"
+    },
+    "settlement-anomaly:README.md": {
+      "hash": "b76db38c910196d4dfbd1368f811e770c5b0ac9f6cf8a6c289092e418d16b598",
+      "modified": "2026-09-18T14:46:44.857362+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-anomaly:requirements.txt": {
+      "hash": "ed745b329789bf21c7654a889bfa2e65c9fea1cf43d1ba621a730f7179778fe1",
+      "modified": "2026-09-18T14:46:44.855004+00:00"
+    },
+    "settlement-anomaly:sql/V1__anomaly_schema.sql": {
+      "hash": "9b8e139ca683dd9badae0c27cc104c789e2a1a45f461de7d959fb3196d2875e4",
+      "modified": "2026-09-18T14:46:44.863456+00:00"
+    },
+    "settlement-batch:README.md": {
+      "hash": "c18d97fca2b55cd1711eb1d12377912ac2c8748879eaf19060e579daff8939c9",
+      "modified": "2026-09-18T14:46:44.646785+00:00"
+    },
+    "settlement-batch:build.gradle": {
+      "hash": "0eb82db7cc209bd252d4bc6f9db5ae7b46564fb21e48cbd28055fbd079e29f5a",
+      "modified": "2026-09-18T14:46:44.657866+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemWriter.java": {
+      "hash": "8823fd645c1d4b6f058b8dad5ba0ac2046e162703555183f172b2e8c741a8e32",
+      "modified": "2026-09-18T14:46:44.700820+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V4__cancel_recon_queue_index.sql": {
+      "hash": "ddfaebd7de78b8390640d3724640627eef7df686c49c8da0effd60c3aff948c4",
+      "modified": "2026-09-18T14:46:44.681945+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V5__add_recon_processed_columns.sql": {
+      "hash": "aaff9384b8d7d0af2639f2604c24a50802d1be316c06698fedee235a5a41746b",
+      "modified": "2026-09-18T14:46:44.680879+00:00"
+    }
+  }
+}

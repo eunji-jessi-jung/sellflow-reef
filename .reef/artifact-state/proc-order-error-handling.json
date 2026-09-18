@@ -1,0 +1,62 @@
+{
+  "artifact_id": "PROC-ORDER-ERROR-HANDLING",
+  "snapshot_at": "2026-09-18T22:22:13.799024+00:00",
+  "sources": {
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    },
+    "delivery-bff:src/generated/orderApi.ts": {
+      "hash": "cee3497753e23078e0556d974c3bd8f830b4f72e21cc4265c327732fdc17e8a4",
+      "modified": "2026-09-18T14:46:44.725200+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderCancel.java": {
+      "hash": "33713996fe4c167e304b13452f53d2879f11baa4bb5791d9c7d89ffd39d39425",
+      "modified": "2026-09-18T14:46:44.837543+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/event/OrderEventPublisher.java": {
+      "hash": "7496e53cb0965305a7a486f8eaf0e90fa38045b14e530ae5a91f3ff832e2a3c0",
+      "modified": "2026-09-18T14:46:44.847030+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/exception/GlobalExceptionHandler.java": {
+      "hash": "4b867faed30f3fe35ec072ef7278224c84dd4e52981e3228896316c822d4560e",
+      "modified": "2026-09-18T14:46:44.843187+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/legacy/OrderCancelServiceV1.java": {
+      "hash": "688c132020d0624909c970876fa5faa9d5485d652639fa1a80242f288bee53a0",
+      "modified": "2026-09-18T14:46:44.818950+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/payment/PaymentClient.java": {
+      "hash": "426e1e3f57d20e7f11b6345a966c526d08f9481ed7d221c54f1c431268b2230a",
+      "modified": "2026-09-18T14:46:44.815086+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/search/OrderSearchService.java": {
+      "hash": "dafc85814564774d43c4deedda04314d798485569c52b403002249e869a55374",
+      "modified": "2026-09-18T14:46:44.822737+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderStatusService.java": {
+      "hash": "c42858d8a701126762561f3af0412885da2b9716c1af750adfa08a0627aece0c",
+      "modified": "2026-09-18T21:41:41.783088+00:00"
+    },
+    "order-service:src/main/resources/application-prod.yml": {
+      "hash": "82dcafcbe906723d4334a63077c66c6ba09650a9b7e7371e4ef43e9bbea28bbf",
+      "modified": "2026-09-18T14:46:44.770632+00:00"
+    }
+  }
+}

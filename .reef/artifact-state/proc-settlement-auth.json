@@ -1,0 +1,62 @@
+{
+  "artifact_id": "PROC-SETTLEMENT-AUTH",
+  "snapshot_at": "2026-09-18T22:22:14.742495+00:00",
+  "sources": {
+    "sellflow-docs:context/handover/2025-03_정산팀_인수인계.md": {
+      "hash": "b527733f1ca133a5827ba162535ef8d8eb6b2fa1083fb5a3ce148bdaeba6cc57",
+      "modified": "2026-09-18T14:48:02.560700+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v1.1.md": {
+      "hash": "5536ce4060f50c2612dae140c12a595612b981ec2795f595b11beb81a67eb344",
+      "modified": "2026-09-18T14:48:02.536148+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:infra/settlement/runtime.md": {
+      "hash": "249cf74a8cba87a61887dbdb7b6fe414254f021d40f751ceb8cb9afc69025bce",
+      "modified": "2026-09-18T14:55:37.908994+00:00"
+    },
+    "settlement-anomaly:.env.template": {
+      "hash": "191a6a5bfe70cd78d6bb1e625cee7fc6a2233c6f2a1191257956ae3705966711",
+      "modified": "2026-09-18T14:46:44.858183+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-batch:.env.dev": {
+      "hash": "ce0c16689341fca2855e717a5281954a1c75effdbc700666586e79e3865e3511",
+      "modified": "2026-09-18T14:46:44.647893+00:00"
+    },
+    "settlement-batch:.github/workflows/settlement-batch-dev-cd.yml": {
+      "hash": "4e06137bba492636a916f747580628810b34331a16a17a95f82f6bf659ece93d",
+      "modified": "2026-09-18T14:46:44.656395+00:00"
+    },
+    "settlement-batch:.github/workflows/settlement-batch-prod-cd.yml": {
+      "hash": "6ec592133047f28232d6b9566c1ffec02bec5de16b4c86ac6432cfc03213d5c0",
+      "modified": "2026-09-18T14:46:44.653212+00:00"
+    },
+    "settlement-batch:build.gradle": {
+      "hash": "0eb82db7cc209bd252d4bc6f9db5ae7b46564fb21e48cbd28055fbd079e29f5a",
+      "modified": "2026-09-18T14:46:44.657866+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    },
+    "settlement-batch:src/main/resources/application.yml": {
+      "hash": "690f6dea321bd0f292ad1628a84ad7243dbb958148d6b77aaec278484100827a",
+      "modified": "2026-09-18T14:46:44.686110+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    }
+  }
+}

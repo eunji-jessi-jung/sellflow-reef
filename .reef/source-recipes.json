@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "note": "No tier-2 runtime recipes were cached. None of the five source repos is installable in this workspace (no resolvable lockfiles, no dependency caches, no venvs, missing model artefacts), so runtime extraction was skipped at pre-flight for every repo. Per the skill's rules, tier-3 copies and tier-4 code reads are never cached — re-running /reef:source will re-read the code, which is the correct behaviour here.",
+  "recipes": {
+    "order": {"api": null, "erd": null},
+    "settlement/batch": {"api": null, "erd": null},
+    "settlement/anomaly": {"api": null, "erd": null},
+    "inventory": {"api": null, "erd": null},
+    "delivery": {"api": null, "erd": null}
+  }
+}

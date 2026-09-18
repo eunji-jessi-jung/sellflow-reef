@@ -1,0 +1,126 @@
+{
+  "artifact_id": "PAT-SELLFLOW-DOC-CODE-DRIFT",
+  "snapshot_at": "2026-09-18T22:22:12.316122+00:00",
+  "sources": {
+    "delivery-bff:src/generated/orderApi.ts": {
+      "hash": "cee3497753e23078e0556d974c3bd8f830b4f72e21cc4265c327732fdc17e8a4",
+      "modified": "2026-09-18T14:46:44.725200+00:00"
+    },
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "order-service:.github/pull_request_template.md": {
+      "hash": "cdad73bdbbf73122609980991b724abeeaf06f675b8e89b442c1a253629ed249",
+      "modified": "2026-09-18T14:46:44.744044+00:00"
+    },
+    "order-service:README.md": {
+      "hash": "6d836340e897462c3e4542dc92eb749182db3fa2cf06ab6ce60662083c6228fa",
+      "modified": "2026-09-18T14:46:44.733691+00:00"
+    },
+    "order-service:TASK.md": {
+      "hash": "ea25de3c8544d204d3dda8ab02b78d1f00a1272d79e2935c085c361d9ce413ee",
+      "modified": "2026-09-18T14:46:44.747294+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/common/DateUtil.java": {
+      "hash": "c6664efe11132a9494637a3782849a7793c5f544d1e1a8f2ab1c1a2271a8bee4",
+      "modified": "2026-09-18T14:46:44.826008+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V16__revert_rename_bigo.sql": {
+      "hash": "ca9450e4f01a237cf952645a941b40b29149027819bc0bd7d075a615feec6641",
+      "modified": "2026-09-18T14:46:44.779913+00:00"
+    },
+    "settlement-batch:README.md": {
+      "hash": "c18d97fca2b55cd1711eb1d12377912ac2c8748879eaf19060e579daff8939c9",
+      "modified": "2026-09-18T14:46:44.646785+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/common/MoneyUtil.java": {
+      "hash": "8370ef6d465156459fd0ffddb889fda24439a7d338442cfe45bcc7326ab1662b",
+      "modified": "2026-09-18T14:46:44.698766+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemProcessor.java": {
+      "hash": "d13eb9d85aab1ac24cd45154fee2081da345670d79fbb18688160a2c0c096437",
+      "modified": "2026-09-18T14:46:44.703326+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/recon/CancelReconciler.java": {
+      "hash": "6e24994dd5ab5cb46838effc95a12b291e03e91914481843e9255c7138cb1f83",
+      "modified": "2026-09-18T14:46:44.715245+00:00"
+    },
+    "sellflow-docs:apis/order/openapi.meta.json": {
+      "hash": "363808dacaefe9f278a54b481c61c32ae5896399485692d8b4b3363b03b0ebe7",
+      "modified": "2026-09-18T22:21:15.559615+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/handover/2025-03_정산팀_인수인계.md": {
+      "hash": "b527733f1ca133a5827ba162535ef8d8eb6b2fa1083fb5a3ce148bdaeba6cc57",
+      "modified": "2026-09-18T14:48:02.560700+00:00"
+    },
+    "sellflow-docs:context/minutes/2026-06-18_정산정정_자동화_킥오프.md": {
+      "hash": "4f60a41b920b2112f6ca1438c56dcaf4da06b6dbc7a0e06b5068a10452ac352d",
+      "modified": "2026-09-18T14:48:02.549968+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/plans/2026_정산정정_AI에이전트_자동화_기획.md": {
+      "hash": "bc043d11105258c28b7e7d7714afc94ea6fc391fdebf88cfe362fdc15d889963",
+      "modified": "2026-09-18T14:48:02.542861+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v0.3.md": {
+      "hash": "e1ed304951f013cbe61c5265c8e4be496b93901ee316a86688f63b341d0b632f",
+      "modified": "2026-09-18T14:48:02.533659+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v1.1.md": {
+      "hash": "5536ce4060f50c2612dae140c12a595612b981ec2795f595b11beb81a67eb344",
+      "modified": "2026-09-18T14:48:02.536148+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:context/sprints/2026-S17_log.md": {
+      "hash": "e4d87997e624974d38bb46ca217962b9c0b2cfa5323be3c2fe7d0f40ea97f361",
+      "modified": "2026-09-18T14:48:02.578479+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    },
+    "sellflow-docs:raw/exports/README.md": {
+      "hash": "1cac838942cb2d6778aad20c911c6caafb3b9f674e2fb5a811541701ef15a871",
+      "modified": "2026-09-18T14:48:02.627743+00:00"
+    },
+    "sellflow-docs:raw/mail/RE_정산_미정정_금액_문의.eml": {
+      "hash": "4be4ddfe2b3619bfa8269a7b531492e60ce954749efc0fb1e8a754867300fb8c",
+      "modified": "2026-09-18T14:48:02.643727+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    }
+  }
+}

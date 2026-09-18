@@ -1,0 +1,90 @@
+{
+  "artifact_id": "SYS-SETTLEMENT-ANOMALY",
+  "snapshot_at": "2026-09-18T22:22:17.727872+00:00",
+  "sources": {
+    "settlement-anomaly:.env.template": {
+      "hash": "191a6a5bfe70cd78d6bb1e625cee7fc6a2233c6f2a1191257956ae3705966711",
+      "modified": "2026-09-18T14:46:44.858183+00:00"
+    },
+    "settlement-anomaly:README.md": {
+      "hash": "b76db38c910196d4dfbd1368f811e770c5b0ac9f6cf8a6c289092e418d16b598",
+      "modified": "2026-09-18T14:46:44.857362+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-anomaly:app/schemas.py": {
+      "hash": "e1718c1660bc2eb4fcd7b40fc1179770d680425bc20785e0393b0cacd7bf7185",
+      "modified": "2026-09-18T14:46:44.853253+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-anomaly:model/features.py": {
+      "hash": "cb3b4a7c9cd6e35d44e616b3ef97353027d6bfc03fcfa32d8ab5e5bd179c827c",
+      "modified": "2026-09-18T14:46:44.861276+00:00"
+    },
+    "settlement-anomaly:requirements.txt": {
+      "hash": "ed745b329789bf21c7654a889bfa2e65c9fea1cf43d1ba621a730f7179778fe1",
+      "modified": "2026-09-18T14:46:44.855004+00:00"
+    },
+    "settlement-anomaly:sql/V1__anomaly_schema.sql": {
+      "hash": "9b8e139ca683dd9badae0c27cc104c789e2a1a45f461de7d959fb3196d2875e4",
+      "modified": "2026-09-18T14:46:44.863456+00:00"
+    },
+    "settlement-anomaly:tests/test_detector.py": {
+      "hash": "6b3a27a259f05db0a8eeba91990804ee6762860ad64a38cff1a9f0652495f19c",
+      "modified": "2026-09-18T14:46:44.856434+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/config/DailySettlementJobConfig.java": {
+      "hash": "9b8fcf301821da4ba31994aec7894e87d811db93cb7959bed51f574ca76df28e",
+      "modified": "2026-09-18T14:46:44.694762+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/config/QuartzConfig.java": {
+      "hash": "749f15e0b43db2bdb1e83b93667872ea0aa7420aa7bb403ed54dc231f76b1803",
+      "modified": "2026-09-18T14:46:44.695766+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/relay/OrderEventRelayJob.java": {
+      "hash": "b5c841b7b415d9468be1eba2d4f87b2dc8044b507bf2b9806b57b97a28c644ed",
+      "modified": "2026-09-18T14:46:44.707153+00:00"
+    },
+    "sellflow-docs:apis/settlement/anomaly/openapi.json": {
+      "hash": "000ecfebe52bc75d2d29b98983b28bad19493edaf41e82a0040f5d147f98d913",
+      "modified": "2026-09-18T14:51:49.441547+00:00"
+    },
+    "sellflow-docs:context/minutes/2026-06-18_정산정정_자동화_킥오프.md": {
+      "hash": "4f60a41b920b2112f6ca1438c56dcaf4da06b6dbc7a0e06b5068a10452ac352d",
+      "modified": "2026-09-18T14:48:02.549968+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/plans/2026_정산정정_AI에이전트_자동화_기획.md": {
+      "hash": "bc043d11105258c28b7e7d7714afc94ea6fc391fdebf88cfe362fdc15d889963",
+      "modified": "2026-09-18T14:48:02.542861+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:infra/settlement/queues.md": {
+      "hash": "7bfec542ee1b37e2ac04c9ea476a99b444285b5c190478bd15ab65e238c8935e",
+      "modified": "2026-09-18T14:55:19.427561+00:00"
+    },
+    "sellflow-docs:schemas/settlement/anomaly/schema.md": {
+      "hash": "192be26937cd6326eba20323f94a258e1011778b99299cabc290147a6f934b6e",
+      "modified": "2026-09-18T14:54:32.392836+00:00"
+    }
+  }
+}

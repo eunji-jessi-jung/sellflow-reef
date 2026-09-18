@@ -1,0 +1,86 @@
+{
+  "artifact_id": "PROC-SELLFLOW-OWNERSHIP",
+  "snapshot_at": "2026-09-18T22:22:14.310928+00:00",
+  "sources": {
+    "delivery-bff:README.md": {
+      "hash": "c3bd981efb75e637cef7757cd44b9d1ed7d2b6bca82511c8ba944a8f71ce8bb5",
+      "modified": "2026-09-18T14:46:44.719120+00:00"
+    },
+    "delivery-bff:package.json": {
+      "hash": "1bd4346a59a51ad89365eafb2751852cdd5395251ef841eb4799bd252fb1d346",
+      "modified": "2026-09-18T14:46:44.721078+00:00"
+    },
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "order-service:.github/CODEOWNERS": {
+      "hash": "57ac2ddd27a89098ff7546bf96ec607f1193abca20f54ce6b271e4bf54ffcf26",
+      "modified": "2026-09-18T14:46:44.736715+00:00"
+    },
+    "order-service:README.md": {
+      "hash": "6d836340e897462c3e4542dc92eb749182db3fa2cf06ab6ce60662083c6228fa",
+      "modified": "2026-09-18T14:46:44.733691+00:00"
+    },
+    "order-service:TASK.md": {
+      "hash": "ea25de3c8544d204d3dda8ab02b78d1f00a1272d79e2935c085c361d9ce413ee",
+      "modified": "2026-09-18T14:46:44.747294+00:00"
+    },
+    "sellflow-docs:context/handover/2025-03_정산팀_인수인계.md": {
+      "hash": "b527733f1ca133a5827ba162535ef8d8eb6b2fa1083fb5a3ce148bdaeba6cc57",
+      "modified": "2026-09-18T14:48:02.560700+00:00"
+    },
+    "sellflow-docs:context/minutes/2026-06-18_정산정정_자동화_킥오프.md": {
+      "hash": "4f60a41b920b2112f6ca1438c56dcaf4da06b6dbc7a0e06b5068a10452ac352d",
+      "modified": "2026-09-18T14:48:02.549968+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v0.3.md": {
+      "hash": "e1ed304951f013cbe61c5265c8e4be496b93901ee316a86688f63b341d0b632f",
+      "modified": "2026-09-18T14:48:02.533659+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v1.1.md": {
+      "hash": "5536ce4060f50c2612dae140c12a595612b981ec2795f595b11beb81a67eb344",
+      "modified": "2026-09-18T14:48:02.536148+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:context/sprints/tickets_2026-S17.csv": {
+      "hash": "f7c49b957b573f4a8301902ba646288c7a5f49b54234f3f17ec37ece442c2454",
+      "modified": "2026-09-18T14:48:02.581332+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/mail/RE_정산_미정정_금액_문의.eml": {
+      "hash": "4be4ddfe2b3619bfa8269a7b531492e60ce954749efc0fb1e8a754867300fb8c",
+      "modified": "2026-09-18T14:48:02.643727+00:00"
+    },
+    "sellflow-docs:raw/slack/settlement-dev_2023-04_2026-08.json": {
+      "hash": "c4e302a269304d7f1eeeb8dbba3db99ef099f5ddf9ba00663699fd4f2fa6550d",
+      "modified": "2026-09-18T14:48:02.635982+00:00"
+    },
+    "settlement-anomaly:README.md": {
+      "hash": "b76db38c910196d4dfbd1368f811e770c5b0ac9f6cf8a6c289092e418d16b598",
+      "modified": "2026-09-18T14:46:44.857362+00:00"
+    },
+    "settlement-batch:README.md": {
+      "hash": "c18d97fca2b55cd1711eb1d12377912ac2c8748879eaf19060e579daff8939c9",
+      "modified": "2026-09-18T14:46:44.646785+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/recon/CancelReconciler.java": {
+      "hash": "6e24994dd5ab5cb46838effc95a12b291e03e91914481843e9255c7138cb1f83",
+      "modified": "2026-09-18T14:46:44.715245+00:00"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "artifact_id": "SCH-SETTLEMENT-ANOMALY",
+  "snapshot_at": "2026-09-18T22:22:17.037076+00:00",
+  "sources": {
+    "sellflow-docs:apis/settlement/anomaly/openapi.json": {
+      "hash": "000ecfebe52bc75d2d29b98983b28bad19493edaf41e82a0040f5d147f98d913",
+      "modified": "2026-09-18T14:51:49.441547+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:raw/exports/cancel_recon_queue_monthly_20260901.csv": {
+      "hash": "fdf2da3c6a46c04f1d2f2179e38d85aaa720131685be15a6f636edf4f2cb9b36",
+      "modified": "2026-09-18T14:48:02.629603+00:00"
+    },
+    "sellflow-docs:schemas/settlement/anomaly/schema.md": {
+      "hash": "192be26937cd6326eba20323f94a258e1011778b99299cabc290147a6f934b6e",
+      "modified": "2026-09-18T14:54:32.392836+00:00"
+    },
+    "sellflow-docs:schemas/settlement/batch/schema.md": {
+      "hash": "95b06fb1805bd173ebba057731f1d951ea877c81a071499200192c0da3d571fd",
+      "modified": "2026-09-18T14:54:12.477587+00:00"
+    },
+    "settlement-anomaly:.env.template": {
+      "hash": "191a6a5bfe70cd78d6bb1e625cee7fc6a2233c6f2a1191257956ae3705966711",
+      "modified": "2026-09-18T14:46:44.858183+00:00"
+    },
+    "settlement-anomaly:README.md": {
+      "hash": "b76db38c910196d4dfbd1368f811e770c5b0ac9f6cf8a6c289092e418d16b598",
+      "modified": "2026-09-18T14:46:44.857362+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-anomaly:app/schemas.py": {
+      "hash": "e1718c1660bc2eb4fcd7b40fc1179770d680425bc20785e0393b0cacd7bf7185",
+      "modified": "2026-09-18T14:46:44.853253+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-anomaly:model/features.py": {
+      "hash": "cb3b4a7c9cd6e35d44e616b3ef97353027d6bfc03fcfa32d8ab5e5bd179c827c",
+      "modified": "2026-09-18T14:46:44.861276+00:00"
+    },
+    "settlement-anomaly:requirements.txt": {
+      "hash": "ed745b329789bf21c7654a889bfa2e65c9fea1cf43d1ba621a730f7179778fe1",
+      "modified": "2026-09-18T14:46:44.855004+00:00"
+    },
+    "settlement-anomaly:sql/V1__anomaly_schema.sql": {
+      "hash": "9b8e139ca683dd9badae0c27cc104c789e2a1a45f461de7d959fb3196d2875e4",
+      "modified": "2026-09-18T14:46:44.863456+00:00"
+    },
+    "settlement-batch:README.md": {
+      "hash": "c18d97fca2b55cd1711eb1d12377912ac2c8748879eaf19060e579daff8939c9",
+      "modified": "2026-09-18T14:46:44.646785+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    }
+  }
+}

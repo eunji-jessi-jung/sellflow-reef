@@ -1,0 +1,67 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "settlement-anomaly",
+    "version": "1.4.0",
+    "description": "Extracted by reading FastAPI decorators directly (tier 4). Version from FastAPI(title=..., version=\"1.4.0\") in app/main.py. Detection-only service: it writes SETTLEMENT_ANOMALY rows and nothing else. README: '후속 조치 프로세스는 본 서비스 범위 밖이다.' (the follow-up remediation process is out of scope)."
+  },
+  "servers": [{"url": "http://settlement-anomaly.internal:8090", "description": "README: uvicorn app.main:app --port 8090"}],
+  "tags": [{"name": "anomaly"}],
+  "paths": {
+    "/detect": {
+      "post": {
+        "tags": ["anomaly"],
+        "summary": "당일 정산 건 이상 탐지",
+        "operationId": "detect",
+        "description": "Joins SETTLEMENT_DTL + SETTLEMENT_RUN + ORDER_MST for the given 정산일자, runs AnomalyDetector.detect, and inserts each hit into SETTLEMENT_ANOMALY with STATUS='DETECTED'. README says it is triggered after the settlement batch, daily at 03:00 — but no scheduler exists in this repo; the trigger is external and unverified.",
+        "requestBody": {
+          "required": true,
+          "content": {"application/json": {"schema": {"$ref": "#/components/schemas/DetectRequest"}}}
+        },
+        "responses": {
+          "200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DetectResponse"}}}, "description": "Count of anomalies detected and persisted"},
+          "422": {"description": "FastAPI request validation error"}
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": ["anomaly"],
+        "summary": "health",
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "description": "{\"status\": \"ok\", \"model\": <detector.version>}",
+            "content": {"application/json": {"schema": {"type": "object", "properties": {"status": {"type": "string"}, "model": {"type": "string"}}}}}
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DetectRequest": {
+        "type": "object",
+        "required": ["jungsan_ilja"],
+        "properties": {"jungsan_ilja": {"type": "string", "format": "date", "description": "정산 기준일 — matched against SETTLEMENT_RUN.JUNGSAN_ILJA"}}
+      },
+      "DetectResponse": {
+        "type": "object",
+        "properties": {
+          "detected": {"type": "integer"},
+          "jungsan_ilja": {"type": "string", "format": "date"}
+        }
+      }
+    }
+  },
+  "x-anomaly-codes": {
+    "documented_in_readme": {
+      "AMT_OUTLIER": "금액 이상 — 파트너별 과거 분포 대비 이탈",
+      "DUP_SETTLE": "중복 정산 — 동일 주문 복수 정산",
+      "CANCELLED_SETTLED": "취소 후 정산 잔존 — 취소된 주문이 정산에 포함됨",
+      "FEE_MISMATCH": "수수료 불일치 — 계약 수수료율과 상이"
+    },
+    "actually_emitted_by_model_detector_py": ["CANCELLED_SETTLED", "AMT_OUTLIER"],
+    "note": "DUP_SETTLE and FEE_MISMATCH are documented but not implemented anywhere in model/detector.py."
+  }
+}

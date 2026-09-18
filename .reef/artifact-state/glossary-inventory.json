@@ -1,0 +1,94 @@
+{
+  "artifact_id": "GLOSSARY-INVENTORY",
+  "snapshot_at": "2026-09-18T22:22:11.414513+00:00",
+  "sources": {
+    "inventory-api:.env.sample": {
+      "hash": "90072dfb1069fe914eea5394ed98676e2b56b98218ccaf782d6050d9b9f0aa9b",
+      "modified": "2026-09-18T14:46:44.629460+00:00"
+    },
+    "inventory-api:Dockerfile": {
+      "hash": "c614e55b95b0ed924f9b621b0f4fa6278ca972822c8223bd572049386eb0af75",
+      "modified": "2026-09-18T14:46:44.631406+00:00"
+    },
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "inventory-api:alembic.ini": {
+      "hash": "2605c6503a4386bd59c46993bc6e6a8ad2506fe39ded1c95c5e71d357dfe85a8",
+      "modified": "2026-09-18T14:46:44.630421+00:00"
+    },
+    "inventory-api:alembic/env.py": {
+      "hash": "ce1145f1c8861aac19c9b4be99aca257855aa8e8b8c455c333fcd9c7402ebb02",
+      "modified": "2026-09-18T14:46:44.637462+00:00"
+    },
+    "inventory-api:alembic/versions/20230414_1120-3f9a_add_restore_log.py": {
+      "hash": "2055a3b4636cdd911998ae613bc72655e24405bc9b9bd9951e39ef14a30af64b",
+      "modified": "2026-09-18T21:41:41.784233+00:00"
+    },
+    "inventory-api:alembic/versions/20240902_0931-8ba1_add_restore_log_reason_i.py": {
+      "hash": "6cacaf9f9c32fd4cea1ed8fc6d6dfaaf37b22f00d52f40e6fb6a02147e35cba3",
+      "modified": "2026-09-18T21:41:41.785224+00:00"
+    },
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:app/models.py": {
+      "hash": "92630eabca05f71264c599a61e6462574e775ee3a249aac81be86fc2234c03b0",
+      "modified": "2026-09-18T14:46:44.625854+00:00"
+    },
+    "inventory-api:app/routers.py": {
+      "hash": "6d4e73532a7a437933f36a3a1e13e1f9219460d82b89306b979e8c64a818413c",
+      "modified": "2026-09-18T14:46:44.627501+00:00"
+    },
+    "inventory-api:requirements.txt": {
+      "hash": "971987058950d4ebd887522e99f4ae8dc63f3e61906bc547250a8bfe4bb140ea",
+      "modified": "2026-09-18T21:41:41.787629+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "inventory-api:tests/test_health.py": {
+      "hash": "a2da4ce492538f2fe53f800257fc352b2753eb1493edf6ef61c015907dd94c9b",
+      "modified": "2026-09-18T14:46:44.633167+00:00"
+    },
+    "inventory-api:tests/test_restore.py": {
+      "hash": "d9ab38878bdebd99eda68ed35da9c7ddc8d92cbeb1adf1127b760f315e404fc1",
+      "modified": "2026-09-18T14:46:44.634151+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    }
+  }
+}

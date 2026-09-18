@@ -1,0 +1,54 @@
+{
+  "artifact_id": "PROC-INVENTORY-STOCK-ITEM-LIFECYCLE",
+  "snapshot_at": "2026-09-18T22:22:13.497838+00:00",
+  "sources": {
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:app/models.py": {
+      "hash": "92630eabca05f71264c599a61e6462574e775ee3a249aac81be86fc2234c03b0",
+      "modified": "2026-09-18T14:46:44.625854+00:00"
+    },
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "inventory-api:tests/test_restore.py": {
+      "hash": "d9ab38878bdebd99eda68ed35da9c7ddc8d92cbeb1adf1127b760f315e404fc1",
+      "modified": "2026-09-18T14:46:44.634151+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V12__add_warehouse.sql": {
+      "hash": "86c50d15ff970b09cfb74c690382e5596f0bee8f30e4a4cb02b5ba7f81fe65e4",
+      "modified": "2026-09-18T14:46:44.791629+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    }
+  }
+}

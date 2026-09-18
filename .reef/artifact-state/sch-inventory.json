@@ -1,0 +1,74 @@
+{
+  "artifact_id": "SCH-INVENTORY",
+  "snapshot_at": "2026-09-18T22:22:16.685586+00:00",
+  "sources": {
+    "inventory-api:README.md": {
+      "hash": "b43eec37f6286bacc4669c2afce1cc8ae091547177169fb571e16c26fb4b6f88",
+      "modified": "2026-09-18T14:46:44.635530+00:00"
+    },
+    "inventory-api:alembic.ini": {
+      "hash": "2605c6503a4386bd59c46993bc6e6a8ad2506fe39ded1c95c5e71d357dfe85a8",
+      "modified": "2026-09-18T14:46:44.630421+00:00"
+    },
+    "inventory-api:alembic/env.py": {
+      "hash": "ce1145f1c8861aac19c9b4be99aca257855aa8e8b8c455c333fcd9c7402ebb02",
+      "modified": "2026-09-18T14:46:44.637462+00:00"
+    },
+    "inventory-api:alembic/versions/20230414_1120-3f9a_add_restore_log.py": {
+      "hash": "2055a3b4636cdd911998ae613bc72655e24405bc9b9bd9951e39ef14a30af64b",
+      "modified": "2026-09-18T21:41:41.784233+00:00"
+    },
+    "inventory-api:alembic/versions/20240902_0931-8ba1_add_restore_log_reason_i.py": {
+      "hash": "6cacaf9f9c32fd4cea1ed8fc6d6dfaaf37b22f00d52f40e6fb6a02147e35cba3",
+      "modified": "2026-09-18T21:41:41.785224+00:00"
+    },
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:app/models.py": {
+      "hash": "92630eabca05f71264c599a61e6462574e775ee3a249aac81be86fc2234c03b0",
+      "modified": "2026-09-18T14:46:44.625854+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V12__add_warehouse.sql": {
+      "hash": "86c50d15ff970b09cfb74c690382e5596f0bee8f30e4a4cb02b5ba7f81fe65e4",
+      "modified": "2026-09-18T14:46:44.791629+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:schemas/inventory/schema.md": {
+      "hash": "afa091ede46954078c5f10ba3450422af56025357f7a8e956cacf5f52b2c1b7b",
+      "modified": "2026-09-18T14:54:50.671964+00:00"
+    },
+    "sellflow-docs:schemas/order/schema.md": {
+      "hash": "2d5a30527faf64dfd7a126b725f0a73bb05990fc9cf6b5cb0c8a815c921b190d",
+      "modified": "2026-09-18T14:53:32.505317+00:00"
+    }
+  }
+}

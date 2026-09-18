@@ -1,0 +1,44 @@
+{
+  "service": "order",
+  "sub": null,
+  "source_repo": "order-service",
+  "extraction_tier": 3,
+  "extraction_method": "existing spec (static file), copied from sources/raw/specs/order-service-openapi.json",
+  "source_path": "./sources/raw/specs/order-service-openapi.json",
+  "extracted_at": "2026-09-18T00:00:00Z",
+  "tiers_attempted": [
+    {"tier": 0, "result": "no user-provided file at sources/apis/order/openapi.json"},
+    {"tier": 1, "result": "no .reef/source-recipes.json — first run"},
+    {"tier": 2, "result": "skipped at pre-flight. Gradle project with no resolvable lockfile or dependency cache in the fixture, no gradle wrapper, and springdoc-openapi is not a declared dependency in build.gradle, so no runtime /v3/api-docs endpoint exists to scrape even if the app could boot."},
+    {"tier": 3, "result": "success — copied the 2022 springdoc artefact"},
+    {"tier": 4, "result": "also performed, written alongside as openapi.code-derived.json"}
+  ],
+  "staleness_warning": "STALE. The spec self-reports generation on 2022-11-04 against order-service 2.4.0 (info.version). The repo is now at SERVER_VERSION 2.8.14 (build.gradle says 2.8.4 — the two disagree). The spec documents 30 paths / 45 operations; only 2 endpoints exist in today's source.",
+  "staleness_evidence": [
+    "Spec info.description: 'springdoc-openapi 자동 생성. 생성일 2022-11-04.' and info.version '2.4.0' vs SERVER_VERSION '2.8.14'.",
+    "Only two @RestController classes exist: OrderController (POST /orders/{ordNo}/cancel) and OrderSearchController (GET /api/v1/orders/search). The spec's 28 other paths (/orders GET+POST, /orders/{ordNo}, /details, /history, /delivery, /payment, /hold, /release, /address, /memo, /split, /merge, all /partners/*, all /admin/*, all /internal/*) have no handler in the repo.",
+    "GET /api/v1/orders/search is NOT in the spec at all — the spec's admin search is POST /admin/orders/search.",
+    "Cancel semantics inverted since the spec was generated. SF-2287 (migration V8__add_cancel_event_outbox.sql, 2023-04-18) made settled orders cancellable; the legacy OrderCancelServiceV1 that rejected settled orders is @Deprecated since 2.8.0. Today's OrderCancelService blocks only CHWISO and BANPUM.",
+    "OrderStatus enum now has 7 values including GYEOLJE_WANRYO, SANGPUM_JUNBI and JUNGSAN_WANRYO; the 2022-generated client in delivery-bff (src/generated/orderApi.ts, generated 2022-11-08 from this very file) still has 5 values starting with JUMUN_WANRYO, which no longer exists.",
+    "springdoc-openapi is absent from build.gradle dependencies, so this file cannot be regenerated from the current code — it is frozen at 2022."
+  ],
+  "companion_files": {
+    "openapi.code-derived.json": {
+      "extraction_tier": 4,
+      "extraction_method": "reading Spring @RestController / @RequestMapping annotations",
+      "source_paths": [
+        "src/main/java/kr/co/sellflow/order/controller/OrderController.java",
+        "src/main/java/kr/co/sellflow/order/search/OrderSearchController.java",
+        "src/main/java/kr/co/sellflow/order/exception/GlobalExceptionHandler.java",
+        "src/main/java/kr/co/sellflow/order/config/WebConfig.java"
+      ],
+      "endpoints": 2,
+      "note": "This is the live-truth surface. Prefer it over openapi.json for anything current."
+    }
+  },
+  "uncertainties": [
+    "No git history in the fixture repos, so the usual git-log staleness comparison could not be run; staleness is argued from file content (spec self-reported generation date and version numbers).",
+    "No authentication is visible in the code at all — no Spring Security dependency, no filter, no @PreAuthorize. The 2022 spec declares a global bearerAuth scheme. Either auth was removed, or it is terminated at the gateway. Unresolved.",
+    "OrderSearchService's RowMapper returns null for every row, so GET /api/v1/orders/search returns a list of nulls. Either dead code or an unfinished refactor."
+  ]
+}

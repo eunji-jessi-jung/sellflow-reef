@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "inventory-api",
+    "version": "3.2.1",
+    "description": "Extracted by reading FastAPI decorators directly (tier 4). Version from FastAPI(title=..., version=\"3.2.1\") in app/main.py. NOTE: app/routers.py defines an APIRouter with prefix /inventory, but app/main.py never calls app.include_router — those routes are NOT mounted. They are listed here under x-unmounted for traceability because order-service's InventoryClient calls one of them."
+  },
+  "servers": [{"url": "http://inventory-api.internal", "description": "INVENTORY_BASE_URL default in order-service InventoryClient"}],
+  "tags": [{"name": "stock"}],
+  "paths": {
+    "/stock/restock": {
+      "post": {
+        "tags": ["stock"],
+        "summary": "주문 취소에 따른 재고 복원",
+        "operationId": "restock",
+        "description": "Restocks only when reason_code is in RESTOCKABLE_REASONS = {\"01\", \"02\"} (01 파트너귀책, 02 시스템오류). Code comment: '03(고객 변심)은 배송이 시작된 뒤 취소되는 경우가 많아 복원 대상이 아니다.' Reads ORDER_DTL (an order-service table) directly, then updates stock_item.",
+        "requestBody": {
+          "required": true,
+          "content": {"application/json": {"schema": {"$ref": "#/components/schemas/RestockRequest"}}}
+        },
+        "responses": {
+          "200": {
+            "description": "Either {\"restocked\": true} or {\"restocked\": false, \"reason\": \"not_restockable\"}",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/RestockResponse"}}}
+          },
+          "404": {"description": "주문 상세 없음 — no ORDER_DTL row for ord_no"},
+          "422": {"description": "FastAPI request validation error"}
+        }
+      }
+    },
+    "/stock/{sku}": {
+      "get": {
+        "tags": ["stock"],
+        "summary": "SKU 재고 조회",
+        "operationId": "get_stock",
+        "parameters": [{"name": "sku", "in": "path", "required": true, "schema": {"type": "string", "maxLength": 30}}],
+        "responses": {
+          "200": {
+            "description": "SELECT sku, available_qty, reserved_qty FROM stock_item. Not aggregated across warehouses — stock_item's PK is (sku, warehouse_cd), so this returns an arbitrary single warehouse row.",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/StockItem"}}}
+          },
+          "404": {"description": "SKU 없음"}
+        }
+      }
+    }
+  },
+  "x-unmounted": {
+    "note": "Defined in app/routers.py (APIRouter prefix=/inventory, tags=[inventory]) but never registered on the FastAPI app. Calling them returns 404 in the running service.",
+    "paths": {
+      "/inventory/stock/{sku_cd}": {"get": {"summary": "재고 조회 (stub — returns qty 0 hardcoded)"}},
+      "/inventory/health": {"get": {"summary": "health (stub)"}}
+    }
+  },
+  "components": {
+    "schemas": {
+      "RestockRequest": {
+        "type": "object",
+        "required": ["ord_no", "reason_code"],
+        "properties": {
+          "ord_no": {"type": "string"},
+          "reason_code": {"type": "string", "description": "취소 사유 코드; only 01 and 02 trigger a restock"}
+        }
+      },
+      "RestockResponse": {
+        "type": "object",
+        "properties": {
+          "restocked": {"type": "boolean"},
+          "reason": {"type": "string", "enum": ["not_restockable"]}
+        }
+      },
+      "StockItem": {
+        "type": "object",
+        "properties": {
+          "sku": {"type": "string"},
+          "available_qty": {"type": "integer"},
+          "reserved_qty": {"type": "integer"}
+        }
+      }
+    }
+  }
+}

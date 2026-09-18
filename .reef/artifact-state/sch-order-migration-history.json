@@ -1,0 +1,54 @@
+{
+  "artifact_id": "SCH-ORDER-MIGRATION-HISTORY",
+  "snapshot_at": "2026-09-18T22:22:16.802676+00:00",
+  "sources": {
+    "order-service:.github/workflows/ci.yml": {
+      "hash": "623560fd5ed6f32f52de99ac1166fbe9a8015d381b23fe4b273e7bf7878e9c53",
+      "modified": "2026-09-18T14:46:44.742088+00:00"
+    },
+    "order-service:.github/workflows/migration-issue.yml": {
+      "hash": "b175cb33860bd8f9861ea15ba4ba2a94f43f50fe84baec2b06eaaad14426ff78",
+      "modified": "2026-09-18T14:46:44.738097+00:00"
+    },
+    "order-service:TASK.md": {
+      "hash": "ea25de3c8544d204d3dda8ab02b78d1f00a1272d79e2935c085c361d9ce413ee",
+      "modified": "2026-09-18T14:46:44.747294+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderCancel.java": {
+      "hash": "33713996fe4c167e304b13452f53d2879f11baa4bb5791d9c7d89ffd39d39425",
+      "modified": "2026-09-18T14:46:44.837543+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderMst.java": {
+      "hash": "d887c5b98c6f58eb0dd65ba3202942c15ec0a1d65b316b6b2d0a5b6daad146b9",
+      "modified": "2026-09-18T21:41:41.780805+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/search/OrderSearchService.java": {
+      "hash": "dafc85814564774d43c4deedda04314d798485569c52b403002249e869a55374",
+      "modified": "2026-09-18T14:46:44.822737+00:00"
+    },
+    "order-service:src/main/resources/application.yml": {
+      "hash": "b97283eda9f0c37589d337c8c35b4f779c385d1a98dbae62fe7e9d449fd5dfdf",
+      "modified": "2026-09-18T14:46:44.801804+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:raw/slack/settlement-dev_2023-04_2026-08.json": {
+      "hash": "c4e302a269304d7f1eeeb8dbba3db99ef099f5ddf9ba00663699fd4f2fa6550d",
+      "modified": "2026-09-18T14:48:02.635982+00:00"
+    },
+    "sellflow-docs:schemas/order/schema.md": {
+      "hash": "2d5a30527faf64dfd7a126b725f0a73bb05990fc9cf6b5cb0c8a815c921b190d",
+      "modified": "2026-09-18T14:53:32.505317+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V4__cancel_recon_queue_index.sql": {
+      "hash": "ddfaebd7de78b8390640d3724640627eef7df686c49c8da0effd60c3aff948c4",
+      "modified": "2026-09-18T14:46:44.681945+00:00"
+    }
+  }
+}

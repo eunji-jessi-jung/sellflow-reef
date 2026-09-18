@@ -1,0 +1,66 @@
+{
+  "artifact_id": "SCH-SETTLEMENT-FIELD-LINEAGE-SETTLEMENT-DTL",
+  "snapshot_at": "2026-09-18T22:22:17.276794+00:00",
+  "sources": {
+    "order-service:src/main/java/kr/co/sellflow/order/common/MoneyUtil.java": {
+      "hash": "a84f784f2b1fdd33df9e6509e5dcc3b07ffc591b82e0f6fb63f785cc3aaab260",
+      "modified": "2026-09-18T14:46:44.827037+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V19__order_dtl_option_price.sql": {
+      "hash": "9065a31a6fb943045cd963b2db4c9a4729adbdb363f79c95eee88adc06bbc2e1",
+      "modified": "2026-09-18T14:46:44.778908+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/runbooks/장애회고_2025-07-12_정산배치_중복실행.md": {
+      "hash": "eb2bd4bea3b1799f9436282796fc6c910eb32b2dc58a82dacbd9052f97337781",
+      "modified": "2026-09-18T14:48:02.568084+00:00"
+    },
+    "sellflow-docs:schemas/settlement/batch/schema.md": {
+      "hash": "95b06fb1805bd173ebba057731f1d951ea877c81a071499200192c0da3d571fd",
+      "modified": "2026-09-18T14:54:12.477587+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/common/MoneyUtil.java": {
+      "hash": "8370ef6d465156459fd0ffddb889fda24439a7d338442cfe45bcc7326ab1662b",
+      "modified": "2026-09-18T14:46:44.698766+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/config/DailySettlementJobConfig.java": {
+      "hash": "9b8fcf301821da4ba31994aec7894e87d811db93cb7959bed51f574ca76df28e",
+      "modified": "2026-09-18T14:46:44.694762+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/domain/SettlementTarget.java": {
+      "hash": "06e5d8844dc0d0353a16ce59f7cd9faf0bd6ea1c1df5bb8b6dbf02016302645f",
+      "modified": "2026-09-18T14:46:44.712965+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/domain/SettlementTargetRowMapper.java": {
+      "hash": "51dca4b7ce3e7b69cb72d03667be039ea5ce52e4baba1fc352b72838e3ec6764",
+      "modified": "2026-09-18T14:46:44.711960+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemProcessor.java": {
+      "hash": "d13eb9d85aab1ac24cd45154fee2081da345670d79fbb18688160a2c0c096437",
+      "modified": "2026-09-18T14:46:44.703326+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemWriter.java": {
+      "hash": "8823fd645c1d4b6f058b8dad5ba0ac2046e162703555183f172b2e8c741a8e32",
+      "modified": "2026-09-18T14:46:44.700820+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/repository/PartnerContractRepository.java": {
+      "hash": "09e5217d09c8fa997d5d666c85427a971518cff4a34005ca51465c92b711219f",
+      "modified": "2026-09-18T14:46:44.693102+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "settlement-batch:src/test/java/kr/co/sellflow/settlement/job/SettlementItemProcessorTest.java": {
+      "hash": "b0167b75f3a14f1932f341aa7c01a09be13333811b4a985a487d921d4de2aaaa",
+      "modified": "2026-09-18T14:46:44.670093+00:00"
+    }
+  }
+}

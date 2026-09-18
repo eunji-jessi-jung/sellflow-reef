@@ -1,0 +1,3520 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "order-service API",
+    "description": "셀플로우 주문 서비스.\n\nspringdoc-openapi 자동 생성. 생성일 2022-11-04.\n일부 설명은 수기 보정되었습니다.",
+    "version": "2.4.0",
+    "contact": {
+      "name": "커머스본부 주문팀",
+      "email": "order-dev@sellflow.co.kr"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://order.internal.sellflow.co.kr",
+      "description": "운영"
+    },
+    {
+      "url": "https://order-stg.internal.sellflow.co.kr",
+      "description": "스테이징"
+    }
+  ],
+  "tags": [
+    {
+      "name": "주문"
+    },
+    {
+      "name": "파트너"
+    },
+    {
+      "name": "관리자"
+    },
+    {
+      "name": "내부"
+    }
+  ],
+  "paths": {
+    "/orders": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 목록 조회",
+        "operationId": "listOrders",
+        "parameters": [
+          {
+            "name": "gogaekId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "고객ID"
+          },
+          {
+            "name": "sangtaeCd",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문상태코드"
+          },
+          {
+            "name": "fromDt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "조회 시작일 (YYYYMMDD)"
+          },
+          {
+            "name": "toDt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "조회 종료일 (YYYYMMDD)"
+          },
+          {
+            "name": "partnerId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "페이지"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "페이지 크기"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseOrderMst"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "잘못된 요청",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 생성",
+        "operationId": "createOrder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderMst"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderMst"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "잘못된 요청",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "중복 주문",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ]
+      }
+    },
+    "/orders/{ordNo}": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 단건 조회",
+        "operationId": "getOrder",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOrderMst"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/details": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 상세 조회",
+        "operationId": "getOrderDetails",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseOrderDtl"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/history": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 상태 이력 조회",
+        "operationId": "getOrderHistory",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseOrderHistory"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/delivery": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 배송 정보 조회",
+        "operationId": "getOrderDelivery",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseDeliveryInfo"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/payment": {
+      "get": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 결제 정보 조회",
+        "operationId": "getOrderPayment",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePaymentInfo"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/cancel": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 취소",
+        "operationId": "cancelOrder",
+        "description": "주문을 취소한다. 정산이 완료된 주문은 취소할 수 없다.",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderCancel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "취소 불가 상태 (배송완료·정산완료 등)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/hold": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 보류",
+        "operationId": "holdOrder",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/release": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 보류 해제",
+        "operationId": "releaseOrder",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/address": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "배송지 변경",
+        "operationId": "changeAddress",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/memo": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 메모 등록",
+        "operationId": "addMemo",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/split": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 분할",
+        "operationId": "splitOrder",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{ordNo}/merge": {
+      "post": {
+        "tags": [
+          "주문"
+        ],
+        "summary": "주문 병합",
+        "operationId": "mergeOrder",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "주문 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "처리 불가 상태",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners": {
+      "get": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 목록 조회",
+        "operationId": "listPartners",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponsePartnerInfo"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners/{partnerId}": {
+      "get": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 단건 조회",
+        "operationId": "getPartner",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePartnerInfo"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners/{partnerId}/orders": {
+      "get": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 주문 목록",
+        "operationId": "getPartnerOrders",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners/{partnerId}/settlements": {
+      "get": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 정산 내역",
+        "operationId": "getPartnerSettlements",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseSettlementSummary"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners/{partnerId}/contract": {
+      "get": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 계약 조회",
+        "operationId": "getPartnerContract",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 계약 수정",
+        "operationId": "updatePartnerContract",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners/{partnerId}/suspend": {
+      "post": {
+        "tags": [
+          "파트너"
+        ],
+        "summary": "파트너 일시중지",
+        "operationId": "suspendPartner",
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "파트너ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "파트너 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/orders/search": {
+      "post": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "주문 통합 검색",
+        "operationId": "adminSearchOrders",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/orders/bulk-cancel": {
+      "post": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "주문 일괄 취소",
+        "operationId": "adminBulkCancel",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/orders/export": {
+      "get": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "주문 내보내기",
+        "operationId": "adminExportOrders",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/orders/{ordNo}/force-status": {
+      "put": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "주문 상태 강제 변경",
+        "operationId": "adminForceStatus",
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "주문번호"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/stats/daily": {
+      "get": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "일별 통계",
+        "operationId": "adminDailyStats",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseDailyStats"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/stats/partner": {
+      "get": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "파트너별 통계",
+        "operationId": "adminPartnerStats",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/events/outbox": {
+      "get": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "아웃박스 이벤트 조회",
+        "operationId": "adminListOutbox",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseOutboxEvent"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "정상 응답",
+                    "value": {
+                      "success": true,
+                      "traceId": "a3f1c9e2-4b7d-4e1a-9c2f-8d5b1e7a6c40"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/events/outbox/{eventId}/replay": {
+      "post": {
+        "tags": [
+          "관리자"
+        ],
+        "summary": "아웃박스 이벤트 재발행",
+        "operationId": "adminReplayEvent",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "이벤트ID"
+          },
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "요청 추적 ID"
+          },
+          {
+            "name": "X-Client-Ver",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "클라이언트 버전"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "403": {
+            "description": "권한 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "서버 오류",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/health": {
+      "get": {
+        "tags": [
+          "내부"
+        ],
+        "summary": "헬스체크",
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/internal/ready": {
+      "get": {
+        "tags": [
+          "내부"
+        ],
+        "summary": "레디니스",
+        "operationId": "ready",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/internal/metrics": {
+      "get": {
+        "tags": [
+          "내부"
+        ],
+        "summary": "메트릭",
+        "operationId": "metrics",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          }
+        },
+        "parameters": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OrderMst": {
+        "type": "object",
+        "required": [
+          "ordNo",
+          "gogaekId",
+          "sangtaeCd"
+        ],
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "gogaekId": {
+            "type": "string",
+            "description": "고객ID"
+          },
+          "jumunIlsi": {
+            "type": "string",
+            "description": "주문일시"
+          },
+          "sangtaeCd": {
+            "type": "string",
+            "description": "주문상태코드"
+          },
+          "chongGeumaek": {
+            "type": "number",
+            "description": "총금액"
+          },
+          "baesongJuso": {
+            "type": "string",
+            "description": "배송주소"
+          },
+          "regDtm": {
+            "type": "string",
+            "description": "등록일시"
+          },
+          "updDtm": {
+            "type": "string",
+            "description": "수정일시"
+          },
+          "baesongMsg": {
+            "type": "string",
+            "description": "배송 메시지",
+            "maxLength": 200,
+            "example": "부재 시 경비실"
+          },
+          "gyeolJeCd": {
+            "type": "string",
+            "description": "결제수단코드",
+            "enum": [
+              "CARD",
+              "BANK",
+              "VBANK",
+              "POINT",
+              "MIXED"
+            ]
+          },
+          "gyeolJeIlsi": {
+            "type": "string",
+            "description": "결제일시",
+            "format": "date-time"
+          },
+          "halinGeumaek": {
+            "type": "number",
+            "description": "할인금액",
+            "format": "double",
+            "example": 3000
+          },
+          "baesongBi": {
+            "type": "number",
+            "description": "배송비",
+            "format": "double",
+            "example": 3000
+          },
+          "jeokRipGeum": {
+            "type": "number",
+            "description": "적립금 사용액",
+            "format": "double"
+          },
+          "chaenNelCd": {
+            "type": "string",
+            "description": "유입채널코드",
+            "enum": [
+              "WEB",
+              "APP_IOS",
+              "APP_AND",
+              "OPEN_MARKET",
+              "API"
+            ]
+          },
+          "gogaekMemo": {
+            "type": "string",
+            "description": "고객 메모",
+            "maxLength": 500
+          },
+          "unSongJangBeonho": {
+            "type": "string",
+            "description": "운송장번호",
+            "example": "123456789012"
+          },
+          "taekBaeSaCd": {
+            "type": "string",
+            "description": "택배사코드",
+            "enum": [
+              "CJ",
+              "HANJIN",
+              "LOTTE",
+              "POST",
+              "LOGEN"
+            ]
+          }
+        }
+      },
+      "OrderDtl": {
+        "type": "object",
+        "required": [
+          "ordNo",
+          "ordSeq"
+        ],
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "ordSeq": {
+            "type": "integer",
+            "description": "ordSeq"
+          },
+          "sangpumCd": {
+            "type": "string",
+            "description": "상품코드"
+          },
+          "suryang": {
+            "type": "integer",
+            "description": "수량"
+          },
+          "danga": {
+            "type": "number",
+            "description": "단가"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "파트너ID"
+          },
+          "sangpumMyeong": {
+            "type": "string",
+            "description": "상품명",
+            "maxLength": 200
+          },
+          "okSyeonMyeong": {
+            "type": "string",
+            "description": "옵션명",
+            "maxLength": 200
+          },
+          "halinYul": {
+            "type": "number",
+            "description": "할인율",
+            "format": "double"
+          },
+          "gongGeupGa": {
+            "type": "number",
+            "description": "공급가",
+            "format": "double"
+          },
+          "suSuRyo": {
+            "type": "number",
+            "description": "수수료",
+            "format": "double"
+          },
+          "changgoCd": {
+            "type": "string",
+            "description": "출고창고코드",
+            "enum": [
+              "GIMPO",
+              "YONGIN"
+            ]
+          },
+          "chulGoSangtae": {
+            "type": "string",
+            "description": "출고상태",
+            "enum": [
+              "WAIT",
+              "PICKING",
+              "PACKED",
+              "SHIPPED",
+              "DONE"
+            ]
+          }
+        }
+      },
+      "OrderCancel": {
+        "type": "object",
+        "required": [
+          "ordNo",
+          "chwisoSayuCd"
+        ],
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "chwisoIlsi": {
+            "type": "string",
+            "description": "취소일시"
+          },
+          "chwisoSayuCd": {
+            "type": "string",
+            "description": "취소사유코드"
+          },
+          "choriSangtae": {
+            "type": "string",
+            "description": "처리상태"
+          },
+          "bigo": {
+            "type": "string",
+            "description": "비고"
+          }
+        }
+      },
+      "CancelRequest": {
+        "type": "object",
+        "required": [
+          "sayuCd"
+        ],
+        "properties": {
+          "sayuCd": {
+            "type": "string",
+            "description": "sayuCd"
+          },
+          "bigo": {
+            "type": "string",
+            "description": "비고"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code"
+          },
+          "message": {
+            "type": "string",
+            "description": "message"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "traceId"
+          }
+        }
+      },
+      "PageMeta": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "page"
+          },
+          "size": {
+            "type": "integer",
+            "description": "size"
+          },
+          "totalElements": {
+            "type": "integer",
+            "description": "totalElements"
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "totalPages"
+          }
+        }
+      },
+      "DeliveryInfo": {
+        "type": "object",
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "taekBaeSaCd": {
+            "type": "string",
+            "description": "택배사코드"
+          },
+          "unSongJangBeonho": {
+            "type": "string",
+            "description": "운송장번호"
+          },
+          "chulGoIlsi": {
+            "type": "string",
+            "description": "출고일시",
+            "format": "date-time"
+          },
+          "baesongWanRyoIlsi": {
+            "type": "string",
+            "description": "배송완료일시",
+            "format": "date-time"
+          },
+          "suChwiIn": {
+            "type": "string",
+            "description": "수취인"
+          },
+          "yeonRakCheo": {
+            "type": "string",
+            "description": "연락처"
+          },
+          "baesongSangtae": {
+            "type": "string",
+            "description": "배송상태",
+            "enum": [
+              "PREPARING",
+              "PICKED_UP",
+              "IN_TRANSIT",
+              "OUT_FOR_DELIVERY",
+              "DELIVERED",
+              "FAILED"
+            ]
+          },
+          "jaeSiDoHoisu": {
+            "type": "integer",
+            "description": "재시도 횟수"
+          }
+        },
+        "description": "배송 정보"
+      },
+      "PaymentInfo": {
+        "type": "object",
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "gyeolJeCd": {
+            "type": "string",
+            "description": "결제수단코드"
+          },
+          "seungInBeonho": {
+            "type": "string",
+            "description": "승인번호"
+          },
+          "seungInIlsi": {
+            "type": "string",
+            "description": "승인일시",
+            "format": "date-time"
+          },
+          "geumaek": {
+            "type": "number",
+            "description": "결제금액",
+            "format": "double"
+          },
+          "halBuGaeWol": {
+            "type": "integer",
+            "description": "할부개월"
+          },
+          "pgSa": {
+            "type": "string",
+            "description": "PG사"
+          },
+          "chwiSoGaNeung": {
+            "type": "boolean",
+            "description": "취소가능여부"
+          }
+        },
+        "description": "결제 정보"
+      },
+      "OrderHistory": {
+        "type": "object",
+        "properties": {
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "seq": {
+            "type": "integer",
+            "description": "순번"
+          },
+          "jeonSangtaeCd": {
+            "type": "string",
+            "description": "이전상태코드"
+          },
+          "huSangtaeCd": {
+            "type": "string",
+            "description": "이후상태코드"
+          },
+          "byeonGyeongIlsi": {
+            "type": "string",
+            "description": "변경일시",
+            "format": "date-time"
+          },
+          "byeonGyeongJa": {
+            "type": "string",
+            "description": "변경자"
+          },
+          "sayu": {
+            "type": "string",
+            "description": "사유"
+          }
+        },
+        "description": "주문 상태 이력"
+      },
+      "PartnerInfo": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "string",
+            "description": "파트너ID"
+          },
+          "partnerMyeong": {
+            "type": "string",
+            "description": "파트너명"
+          },
+          "saeopJaBeonho": {
+            "type": "string",
+            "description": "사업자번호"
+          },
+          "daePyoJa": {
+            "type": "string",
+            "description": "대표자"
+          },
+          "yeonRakCheo": {
+            "type": "string",
+            "description": "연락처"
+          },
+          "email": {
+            "type": "string",
+            "description": "이메일",
+            "format": "email"
+          },
+          "gaeIpIlja": {
+            "type": "string",
+            "description": "입점일자",
+            "format": "date"
+          },
+          "sangtae": {
+            "type": "string",
+            "description": "상태",
+            "enum": [
+              "ACTIVE",
+              "SUSPENDED",
+              "TERMINATED"
+            ]
+          },
+          "suSuRyoYul": {
+            "type": "number",
+            "description": "수수료율",
+            "format": "double"
+          }
+        },
+        "description": "파트너 정보"
+      },
+      "SettlementSummary": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "string",
+            "description": "파트너ID"
+          },
+          "jungSanIlja": {
+            "type": "string",
+            "description": "정산일자",
+            "format": "date"
+          },
+          "geonSu": {
+            "type": "integer",
+            "description": "건수"
+          },
+          "chongGeumaek": {
+            "type": "number",
+            "description": "총금액",
+            "format": "double"
+          },
+          "suSuRyo": {
+            "type": "number",
+            "description": "수수료",
+            "format": "double"
+          },
+          "jiGeupAek": {
+            "type": "number",
+            "description": "지급액",
+            "format": "double"
+          },
+          "sangtae": {
+            "type": "string",
+            "description": "상태",
+            "enum": [
+              "PENDING",
+              "DONE",
+              "HOLD"
+            ]
+          }
+        },
+        "description": "정산 요약"
+      },
+      "OrderSearchRequest": {
+        "type": "object",
+        "properties": {
+          "ordNoList": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "주문번호"
+            }
+          },
+          "gogaekId": {
+            "type": "string",
+            "description": "고객ID"
+          },
+          "partnerIdList": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "파트너ID"
+            }
+          },
+          "sangtaeCdList": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "주문상태코드"
+            }
+          },
+          "fromDt": {
+            "type": "string",
+            "description": "시작일",
+            "format": "date"
+          },
+          "toDt": {
+            "type": "string",
+            "description": "종료일",
+            "format": "date"
+          },
+          "minGeumaek": {
+            "type": "number",
+            "description": "최소금액",
+            "format": "double"
+          },
+          "maxGeumaek": {
+            "type": "number",
+            "description": "최대금액",
+            "format": "double"
+          },
+          "chaenNelCd": {
+            "type": "string",
+            "description": "유입채널코드"
+          },
+          "taekBaeSaCd": {
+            "type": "string",
+            "description": "택배사코드"
+          },
+          "page": {
+            "type": "integer",
+            "description": "페이지"
+          },
+          "size": {
+            "type": "integer",
+            "description": "페이지 크기"
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "정렬 조건"
+            }
+          }
+        },
+        "description": "주문 통합 검색 조건"
+      },
+      "DailyStats": {
+        "type": "object",
+        "properties": {
+          "ilja": {
+            "type": "string",
+            "description": "일자",
+            "format": "date"
+          },
+          "juMunGeonSu": {
+            "type": "integer",
+            "description": "주문건수"
+          },
+          "chwiSoGeonSu": {
+            "type": "integer",
+            "description": "취소건수"
+          },
+          "banPumGeonSu": {
+            "type": "integer",
+            "description": "반품건수"
+          },
+          "chongGeoRaeAek": {
+            "type": "number",
+            "description": "총거래액",
+            "format": "double"
+          },
+          "pyeonGyunGaekDanGa": {
+            "type": "number",
+            "description": "평균객단가",
+            "format": "double"
+          }
+        },
+        "description": "일별 통계"
+      },
+      "OutboxEvent": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "description": "이벤트ID",
+            "format": "int64"
+          },
+          "eventType": {
+            "type": "string",
+            "description": "이벤트유형"
+          },
+          "ordNo": {
+            "type": "string",
+            "description": "주문번호"
+          },
+          "payload": {
+            "type": "string",
+            "description": "페이로드"
+          },
+          "publishedYn": {
+            "type": "string",
+            "description": "발행여부",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "regDtm": {
+            "type": "string",
+            "description": "등록일시",
+            "format": "date-time"
+          }
+        },
+        "description": "아웃박스 이벤트"
+      },
+      "ApiResponseOrderMst": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OrderMst"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseOrderMst": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderMst"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseOrderDtl": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OrderDtl"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseOrderDtl": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDtl"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseDeliveryInfo": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DeliveryInfo"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseDeliveryInfo": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeliveryInfo"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponsePaymentInfo": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PaymentInfo"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponsePaymentInfo": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentInfo"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseOrderHistory": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OrderHistory"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseOrderHistory": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderHistory"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponsePartnerInfo": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PartnerInfo"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponsePartnerInfo": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerInfo"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseSettlementSummary": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SettlementSummary"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseSettlementSummary": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SettlementSummary"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseDailyStats": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DailyStats"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseDailyStats": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DailyStats"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "ApiResponseOutboxEvent": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OutboxEvent"
+          },
+          "message": {
+            "type": "string",
+            "description": "메시지"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      },
+      "PageResponseOutboxEvent": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutboxEvent"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PageMeta"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "성공여부"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "추적ID"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}

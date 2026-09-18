@@ -1,0 +1,42 @@
+{
+  "artifact_id": "PROC-DELIVERY-AUTH",
+  "snapshot_at": "2026-09-18T22:22:12.741905+00:00",
+  "sources": {
+    "delivery-bff:.env.template": {
+      "hash": "9011322baafbcf5e8d7af5fedd0005e7fe7b629e5cd516f1f050c7e88897687d",
+      "modified": "2026-09-18T14:46:44.719986+00:00"
+    },
+    "delivery-bff:package.json": {
+      "hash": "1bd4346a59a51ad89365eafb2751852cdd5395251ef841eb4799bd252fb1d346",
+      "modified": "2026-09-18T14:46:44.721078+00:00"
+    },
+    "delivery-bff:src/deliveryStatus.ts": {
+      "hash": "fd6cbc7340a898e95737c2a07e8d3fd9a09739dd19c877174997d076202a3281",
+      "modified": "2026-09-18T14:46:44.727769+00:00"
+    },
+    "delivery-bff:src/generated/orderApi.ts": {
+      "hash": "cee3497753e23078e0556d974c3bd8f830b4f72e21cc4265c327732fdc17e8a4",
+      "modified": "2026-09-18T14:46:44.725200+00:00"
+    },
+    "delivery-bff:src/index.ts": {
+      "hash": "30a378066119a1773522831c39fd819d09551021b8ccd38fe3c6925ec08c813d",
+      "modified": "2026-09-18T14:46:44.728620+00:00"
+    },
+    "delivery-bff:src/orderClient.ts": {
+      "hash": "6a7d159e227b12b86883e79a6adb46970e7f243006b8f4dc1e2b243fab9e3e30",
+      "modified": "2026-09-18T14:46:44.726053+00:00"
+    },
+    "order-service:build.gradle": {
+      "hash": "b4755be988a42a3e332e68dd8322aa7e4c4ac4aa4f9b7e3e1a4d2a47bb5601db",
+      "modified": "2026-09-18T14:46:44.745613+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/controller/OrderController.java": {
+      "hash": "8b10a946c45ced803e74733bbfb4d190628bf511d4aa0337eefba3a7a6223bc2",
+      "modified": "2026-09-18T14:46:44.820911+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    }
+  }
+}

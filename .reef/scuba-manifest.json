@@ -1,0 +1,612 @@
+{
+  "generated_at": "2026-09-18T15:22:41.885918+00:00",
+  "note": "Rebuilt by scuba orchestrator after verifying reef.py manifest output: deduplicated Korean-suffixed entity IDs, added ORDER/INVENTORY tier-1 lifecycles the detector missed (tier1=0 for both is wrong — ORDER_MST has a status machine), added SYS-SETTLEMENT-ANOMALY, added artifacts covering the 15 partial/unanswered questions, replaced DEC- placeholders with specific decisions.",
+  "planned": [],
+  "completed": [
+    {
+      "id": "SYS-ORDER",
+      "type": "system",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "0",
+      "note": "SYS- deepening: Dependencies table, Does NOT Own, Domain Behavior Highlights, Runtime Components",
+      "completed_at": "2026-09-18T15:28:54.117180+00:00"
+    },
+    {
+      "id": "SYS-SETTLEMENT",
+      "type": "system",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "0",
+      "note": "SYS- deepening: Dependencies table, Does NOT Own, Domain Behavior Highlights, Runtime Components",
+      "completed_at": "2026-09-18T15:28:54.117180+00:00"
+    },
+    {
+      "id": "SYS-SETTLEMENT-ANOMALY",
+      "type": "system",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "0",
+      "note": "SYS- deepening: Dependencies table, Does NOT Own, Domain Behavior Highlights, Runtime Components",
+      "completed_at": "2026-09-18T15:28:54.117180+00:00"
+    },
+    {
+      "id": "SYS-INVENTORY",
+      "type": "system",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "0",
+      "note": "SYS- deepening: Dependencies table, Does NOT Own, Domain Behavior Highlights, Runtime Components",
+      "completed_at": "2026-09-18T15:28:54.117180+00:00"
+    },
+    {
+      "id": "SYS-DELIVERY",
+      "type": "system",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "0",
+      "note": "SYS- deepening: Dependencies table, Does NOT Own, Domain Behavior Highlights, Runtime Components",
+      "completed_at": "2026-09-18T15:28:54.117180+00:00"
+    },
+    {
+      "id": "API-ORDER",
+      "type": "api",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "1",
+      "note": "API pattern analysis: surface profile, auth posture, contract limits, worked example",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "API-SETTLEMENT-BATCH",
+      "type": "api",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "1",
+      "note": "API pattern analysis: surface profile, auth posture, contract limits, worked example",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "API-SETTLEMENT-ANOMALY",
+      "type": "api",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "1",
+      "note": "API pattern analysis: surface profile, auth posture, contract limits, worked example",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "API-INVENTORY",
+      "type": "api",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "1",
+      "note": "API pattern analysis: surface profile, auth posture, contract limits, worked example",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "API-DELIVERY",
+      "type": "api",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "1",
+      "note": "API pattern analysis: surface profile, auth posture, contract limits, worked example",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-ORDER",
+      "type": "schema",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "1",
+      "note": "Schema deepening: full field tables, mermaid erDiagram, enum tables, worked join queries",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-SETTLEMENT-BATCH",
+      "type": "schema",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "1",
+      "note": "Schema deepening: full field tables, mermaid erDiagram, enum tables, worked join queries",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-SETTLEMENT-ANOMALY",
+      "type": "schema",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "1",
+      "note": "Schema deepening: full field tables, mermaid erDiagram, enum tables, worked join queries",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-INVENTORY",
+      "type": "schema",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "1",
+      "note": "Schema deepening: full field tables, mermaid erDiagram, enum tables, worked join queries",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-DELIVERY",
+      "type": "schema",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "1",
+      "note": "Schema deepening: full field tables, mermaid erDiagram, enum tables, worked join queries",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-ORDER-ORDER-MST-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: ORDER_MST / SANGTAE_CD state machine",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-ORDER-ORDER-CANCEL-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: ORDER_CANCEL incl. CHORI_SANGTAE, SAYU_CD, CHNL_CD backfill",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-ORDER-EVENT-OUTBOX-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: ORDER_EVENT_OUTBOX row from write to PUBLISHED_YN='Y'",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-CANCEL-RECON-QUEUE-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: CANCEL_RECON_QUEUE — the 4,127-row queue at the centre of the knot",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-RUN-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: SETTLEMENT_RUN + SETTLEMENT_DTL",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-ANOMALY-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: SETTLEMENT_ANOMALY incl. the never-written REVIEWED_BY/REVIEWED_DTM",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-RUN-LOG-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "2",
+      "note": "Tier 1 entity lifecycle: SETTLEMENT_RUN_LOG — created, indexed, never read or written",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-INVENTORY-STOCK-ITEM-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "INVENTORY",
+      "batch": "2",
+      "note": "Entity lifecycle: stock_item available_qty/reserved_qty",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-INVENTORY-RESTORE-LOG-LIFECYCLE",
+      "type": "process",
+      "action": "new",
+      "service": "INVENTORY",
+      "batch": "2",
+      "note": "Entity lifecycle: RESTORE_LOG — columnless migration, empty follow-up migration",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-SETTLEMENT-FIELD-LINEAGE-SETTLEMENT-DTL",
+      "type": "schema",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "2",
+      "note": "Field lineage: how JUNGSAN_AMT and SUSURYO are derived from ORDER_DTL through the batch",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "SCH-ORDER-MIGRATION-HISTORY",
+      "type": "schema",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "2",
+      "note": "Flyway V1-V24 schema history incl. V15/V16 rename-and-revert (answers Q-010)",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-ORDER-AUTH",
+      "type": "process",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "3",
+      "note": "Auth boundary deepening",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-ORDER-ERROR-HANDLING",
+      "type": "process",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "3",
+      "note": "Error handling patterns: what is caught, retried, swallowed, alerted",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-ORDER",
+      "type": "risk",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "3",
+      "note": "Risk deepening: TODO/FIXME, bare catches, disabled tests, hardcoded values; severity by density",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-AUTH",
+      "type": "process",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "3",
+      "note": "Auth boundary deepening",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-ERROR-HANDLING",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "3",
+      "note": "Error handling patterns: what is caught, retried, swallowed, alerted",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-SETTLEMENT",
+      "type": "risk",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "3",
+      "note": "Risk deepening: TODO/FIXME, bare catches, disabled tests, hardcoded values; severity by density",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-INVENTORY-AUTH",
+      "type": "process",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "3",
+      "note": "Auth boundary deepening",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-INVENTORY-ERROR-HANDLING",
+      "type": "process",
+      "action": "new",
+      "service": "INVENTORY",
+      "batch": "3",
+      "note": "Error handling patterns: what is caught, retried, swallowed, alerted",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-INVENTORY",
+      "type": "risk",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "3",
+      "note": "Risk deepening: TODO/FIXME, bare catches, disabled tests, hardcoded values; severity by density",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-DELIVERY-AUTH",
+      "type": "process",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "3",
+      "note": "Auth boundary deepening",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-DELIVERY-ERROR-HANDLING",
+      "type": "process",
+      "action": "new",
+      "service": "DELIVERY",
+      "batch": "3",
+      "note": "Error handling patterns: what is caught, retried, swallowed, alerted",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-DELIVERY",
+      "type": "risk",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "3",
+      "note": "Risk deepening: TODO/FIXME, bare catches, disabled tests, hardcoded values; severity by density",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-SETTLEMENT-ANOMALY",
+      "type": "risk",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "3",
+      "note": "Risks specific to the anomaly service: unowned output, untriggered endpoint, model versioning",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "RISK-ORDER-DISABLED-TESTS",
+      "type": "risk",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "3",
+      "note": "Which tests are disabled and what behaviour is therefore unverified in CI (answers Q-012)",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-FLOW-CATALOG",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "3",
+      "note": "Flow catalog: Quartz triggers, Spring Batch steps, relay job, unscheduled components",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "PROC-SELLFLOW-OWNERSHIP",
+      "type": "process",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "3",
+      "note": "Who owns what: registry vs org chart vs CODEOWNERS vs who actually commits (answers Q-043)",
+      "completed_at": "2026-09-18T15:48:07.140278+00:00"
+    },
+    {
+      "id": "CON-ORDER-SETTLEMENT",
+      "type": "contract",
+      "action": "update",
+      "service": "SELLFLOW",
+      "batch": "4a",
+      "note": "Deepen: outbox->relay->queue contract, the SF-2287 compensation that was never built",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "CON-ORDER-INVENTORY",
+      "type": "contract",
+      "action": "update",
+      "service": "SELLFLOW",
+      "batch": "4a",
+      "note": "Deepen: restock path, reason-code dependency, whether client and server agree (answers Q-031)",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "CON-ORDER-DELIVERY",
+      "type": "contract",
+      "action": "update",
+      "service": "SELLFLOW",
+      "batch": "4a",
+      "note": "Deepen: generated client staleness, what delivery-bff assumes (answers Q-035, Q-042)",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "CON-SETTLEMENT-ANOMALY-SETTLEMENT-BATCH",
+      "type": "contract",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "4a",
+      "note": "Anomaly reads batch and order tables directly across the service boundary (answers Q-024)",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "CON-SELLFLOW-CANCEL-ENTITY-COMPARISON",
+      "type": "contract",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "4b",
+      "note": "'Cancel' side by side across order, settlement, inventory, anomaly: fields, lifecycle, meaning",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-ANOMALY-VS-BATCH",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "4b",
+      "note": "Multi-app comparison: settlement-batch vs settlement-anomaly — stack, schema, ownership, deploy",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "PROC-SETTLEMENT-CORRECTION-PROCEDURE-V03-VS-V11",
+      "type": "process",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "4b",
+      "note": "Procedure v0.3 vs v1.1: what changed, what the code never implemented either way",
+      "completed_at": "2026-09-18T16:00:47.456086+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-ORDER-CANCEL-DIVERGENCE",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "'Order cancel' modelled differently in each service [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-DB-AS-QUEUE",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "Both queues are polled DB tables, no broker; consequences and the shared pattern [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-CROSS-SERVICE-AUTH",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "Four services, four auth postures [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-CROSS-SERVICE-DATA-FLOW",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "Who emits, who ingests, who reads whose tables directly [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "DEC-ORDER-SF2287-CANCEL-BLOCK-REMOVAL",
+      "type": "decision",
+      "action": "new",
+      "service": "ORDER",
+      "batch": "5b",
+      "note": "ADR: SF-2287 removed the settled-order cancel block (2023-04) [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "DEC-SETTLEMENT-CANCEL-CLAWBACK",
+      "type": "decision",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "5b",
+      "note": "ADR: next-month clawback as the agreed compensation; CancelReconciler never scheduled [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "DEC-SELLFLOW-2026-AUTOMATION-SIZING",
+      "type": "decision",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5b",
+      "note": "ADR: the 2026 automation plan sized on a 2023 estimate the data contradicts [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "DEC-INVENTORY-RESTOCK-BY-REASON",
+      "type": "decision",
+      "action": "new",
+      "service": "INVENTORY",
+      "batch": "5b",
+      "note": "ADR: restock decided by cancel reason code, and where that policy actually lives [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-ORDER",
+      "type": "glossary",
+      "action": "update",
+      "service": "ORDER",
+      "batch": "5b",
+      "note": "Glossary deepening: romanised column names, enum values, Korean terms with meanings [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-SETTLEMENT",
+      "type": "glossary",
+      "action": "update",
+      "service": "SETTLEMENT",
+      "batch": "5b",
+      "note": "Glossary deepening: romanised column names, enum values, Korean terms with meanings [verified on disk at resume]",
+      "completed_at": "2026-09-19T01:11:00+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-ORPHANED-COMPONENTS",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "Absence of evidence as a finding: components with no caller, tables with no writer, queues with no consumer",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "PAT-SELLFLOW-DOC-CODE-DRIFT",
+      "type": "pattern",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5a",
+      "note": "The recurring shape of drift between documents and running code (answers Q-047)",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "DEC-DELIVERY-GENERATED-CLIENT",
+      "type": "decision",
+      "action": "new",
+      "service": "DELIVERY",
+      "batch": "5b",
+      "note": "ADR: checked-in generated client against a spec that has moved",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "DEC-SETTLEMENT-ANOMALY-STANDALONE",
+      "type": "decision",
+      "action": "new",
+      "service": "SETTLEMENT",
+      "batch": "5b",
+      "note": "ADR: anomaly detection split out as its own Python service reading other services' tables",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-INVENTORY",
+      "type": "glossary",
+      "action": "update",
+      "service": "INVENTORY",
+      "batch": "5b",
+      "note": "Glossary deepening: romanised column names, enum values, Korean terms with meanings",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-DELIVERY",
+      "type": "glossary",
+      "action": "update",
+      "service": "DELIVERY",
+      "batch": "5b",
+      "note": "Glossary deepening: romanised column names, enum values, Korean terms with meanings",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-SELLFLOW",
+      "type": "glossary",
+      "action": "update",
+      "service": "SELLFLOW",
+      "batch": "5b",
+      "note": "Glossary deepening: romanised column names, enum values, Korean terms with meanings",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    },
+    {
+      "id": "GLOSSARY-SOURCE-INDEX",
+      "type": "glossary",
+      "action": "new",
+      "service": "SELLFLOW",
+      "batch": "5b",
+      "note": "Term -> defining code location across all five repos",
+      "completed_at": "2026-09-19T02:48:00+00:00"
+    }
+  ],
+  "skipped": [],
+  "dropped": []
+}

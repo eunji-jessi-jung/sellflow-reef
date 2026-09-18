@@ -1,0 +1,34 @@
+{
+  "artifact_id": "DEC-SELLFLOW-SHARED-DB",
+  "snapshot_at": "2026-09-18T22:22:10.985633+00:00",
+  "sources": {
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderStatusService.java": {
+      "hash": "c42858d8a701126762561f3af0412885da2b9716c1af750adfa08a0627aece0c",
+      "modified": "2026-09-18T21:41:41.783088+00:00"
+    },
+    "order-service:src/main/resources/application.yml": {
+      "hash": "b97283eda9f0c37589d337c8c35b4f779c385d1a98dbae62fe7e9d449fd5dfdf",
+      "modified": "2026-09-18T14:46:44.801804+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    }
+  }
+}

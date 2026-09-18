@@ -1,0 +1,178 @@
+{
+  "artifact_id": "GLOSSARY-SOURCE-INDEX",
+  "snapshot_at": "2026-09-18T22:22:11.878536+00:00",
+  "sources": {
+    "delivery-bff:src/deliveryStatus.ts": {
+      "hash": "fd6cbc7340a898e95737c2a07e8d3fd9a09739dd19c877174997d076202a3281",
+      "modified": "2026-09-18T14:46:44.727769+00:00"
+    },
+    "delivery-bff:src/generated/orderApi.ts": {
+      "hash": "cee3497753e23078e0556d974c3bd8f830b4f72e21cc4265c327732fdc17e8a4",
+      "modified": "2026-09-18T14:46:44.725200+00:00"
+    },
+    "delivery-bff:src/index.ts": {
+      "hash": "30a378066119a1773522831c39fd819d09551021b8ccd38fe3c6925ec08c813d",
+      "modified": "2026-09-18T14:46:44.728620+00:00"
+    },
+    "inventory-api:alembic/versions/20230414_1120-3f9a_add_restore_log.py": {
+      "hash": "2055a3b4636cdd911998ae613bc72655e24405bc9b9bd9951e39ef14a30af64b",
+      "modified": "2026-09-18T21:41:41.784233+00:00"
+    },
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:app/models.py": {
+      "hash": "92630eabca05f71264c599a61e6462574e775ee3a249aac81be86fc2234c03b0",
+      "modified": "2026-09-18T14:46:44.625854+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/CancelReason.java": {
+      "hash": "b694e65cb1b8e85d4b116448a8ead77d3203752ab2e04ebe63df4c0778630215",
+      "modified": "2026-09-18T14:46:44.836584+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/DeliveryInfo.java": {
+      "hash": "59d1c07869aba86008f9f287dffb22d8039bf040f474f5a1a6476d94b0297877",
+      "modified": "2026-09-18T14:46:44.841495+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderItem.java": {
+      "hash": "400710a4c40ececaaa44b43b79a9f6deacfc591c3b4e4081331dee856909ffe2",
+      "modified": "2026-09-18T21:43:24.473806+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatusHistory.java": {
+      "hash": "cb71f190337188db8cdc75de6b1fe090ef57c8345d0fa4f9b1532735241e7a76",
+      "modified": "2026-09-18T14:46:44.840575+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/event/OrderEventPublisher.java": {
+      "hash": "7496e53cb0965305a7a486f8eaf0e90fa38045b14e530ae5a91f3ff832e2a3c0",
+      "modified": "2026-09-18T14:46:44.847030+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/search/OrderSearchService.java": {
+      "hash": "dafc85814564774d43c4deedda04314d798485569c52b403002249e869a55374",
+      "modified": "2026-09-18T14:46:44.822737+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V13__cleanup_unused.sql": {
+      "hash": "e33f61f416ebc589aac99201adf77829ab9a526d026bfd969336f8a3e290c518",
+      "modified": "2026-09-18T21:41:24.320489+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V18__backfill_cancel_channel.sql": {
+      "hash": "e4cea07c6cdfab5d53d45c0ce9eec2c170be0f4632ccc74638ca0abc627f0982",
+      "modified": "2026-09-18T21:41:24.321875+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V1__init.sql": {
+      "hash": "79c26d90834663a072f6293acaf764de3633492d5f23a084770ecfd70934fdb5",
+      "modified": "2026-09-18T22:20:24.552230+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V21__add_settlement_ref_index.sql": {
+      "hash": "4f76da16954e85ed8dff4a95234500ac7d7440ac9f1bfcd7708510d64bfaf370",
+      "modified": "2026-09-18T21:41:24.324802+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V22__order_cancel_status_index.sql": {
+      "hash": "68073125d00a83ee69736d9102d9036a19bb4546d946b9e727e8dd71ff767ab2",
+      "modified": "2026-09-18T21:41:24.327441+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V23__consolidated_schema.sql": {
+      "hash": "a470edc3fa0e4d6458d563ff2abc516c8c8890ea4aa7d162cd6c19e1c9e76185",
+      "modified": "2026-09-18T21:41:24.329794+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V24__add_order_memo_search_index.sql": {
+      "hash": "a536cefb876ddca2b21ba9cc0931f3166fb4347930536d129203ab8910061922",
+      "modified": "2026-09-18T21:41:24.329005+00:00"
+    },
+    "order-service:src/main/resources/db/migration/V8__add_cancel_event_outbox.sql": {
+      "hash": "22056a87a25a2d4a95c6fd3b4e1488bb92a286b1afa529d20cb0e7a06b823c1b",
+      "modified": "2026-09-18T14:46:44.798413+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    },
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/policy/정산_정정_업무절차_v1.1.md": {
+      "hash": "5536ce4060f50c2612dae140c12a595612b981ec2795f595b11beb81a67eb344",
+      "modified": "2026-09-18T14:48:02.536148+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:raw/exports/README.md": {
+      "hash": "1cac838942cb2d6778aad20c911c6caafb3b9f674e2fb5a811541701ef15a871",
+      "modified": "2026-09-18T14:48:02.627743+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-anomaly:model/features.py": {
+      "hash": "cb3b4a7c9cd6e35d44e616b3ef97353027d6bfc03fcfa32d8ab5e5bd179c827c",
+      "modified": "2026-09-18T14:46:44.861276+00:00"
+    },
+    "settlement-anomaly:sql/V1__anomaly_schema.sql": {
+      "hash": "9b8e139ca683dd9badae0c27cc104c789e2a1a45f461de7d959fb3196d2875e4",
+      "modified": "2026-09-18T14:46:44.863456+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemProcessor.java": {
+      "hash": "d13eb9d85aab1ac24cd45154fee2081da345670d79fbb18688160a2c0c096437",
+      "modified": "2026-09-18T14:46:44.703326+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemWriter.java": {
+      "hash": "8823fd645c1d4b6f058b8dad5ba0ac2046e162703555183f172b2e8c741a8e32",
+      "modified": "2026-09-18T14:46:44.700820+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/recon/CancelReconciler.java": {
+      "hash": "6e24994dd5ab5cb46838effc95a12b291e03e91914481843e9255c7138cb1f83",
+      "modified": "2026-09-18T14:46:44.715245+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/relay/OrderEventRelayJob.java": {
+      "hash": "b5c841b7b415d9468be1eba2d4f87b2dc8044b507bf2b9806b57b97a28c644ed",
+      "modified": "2026-09-18T14:46:44.707153+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V1__settlement_schema.sql": {
+      "hash": "46fb495dae40e525f3209fc3bbfc68794b02f720202aee3410c85bb34ab7f1f1",
+      "modified": "2026-09-18T14:46:44.683240+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V2__add_settlement_run_log.sql": {
+      "hash": "87af3d1f7139b2e1fcc960d93b63d44cba941f63d3231d90ba6d0c5f1bedf2fe",
+      "modified": "2026-09-18T14:46:44.679696+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V3__add_partner_contract.sql": {
+      "hash": "ee7211ca790749a91a1d8f3430d7a5ccf48a7d4b28a96dbfc2c406d15955e322",
+      "modified": "2026-09-18T14:46:44.678550+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V4__cancel_recon_queue_index.sql": {
+      "hash": "ddfaebd7de78b8390640d3724640627eef7df686c49c8da0effd60c3aff948c4",
+      "modified": "2026-09-18T14:46:44.681945+00:00"
+    },
+    "settlement-batch:src/main/resources/db/migration/V5__add_recon_processed_columns.sql": {
+      "hash": "aaff9384b8d7d0af2639f2604c24a50802d1be316c06698fedee235a5a41746b",
+      "modified": "2026-09-18T14:46:44.680879+00:00"
+    }
+  }
+}

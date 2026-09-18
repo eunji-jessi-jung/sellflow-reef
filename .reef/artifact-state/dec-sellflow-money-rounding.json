@@ -1,0 +1,26 @@
+{
+  "artifact_id": "DEC-SELLFLOW-MONEY-ROUNDING",
+  "snapshot_at": "2026-09-18T22:22:10.866308+00:00",
+  "sources": {
+    "order-service:src/main/java/kr/co/sellflow/order/common/MoneyUtil.java": {
+      "hash": "a84f784f2b1fdd33df9e6509e5dcc3b07ffc591b82e0f6fb63f785cc3aaab260",
+      "modified": "2026-09-18T14:46:44.827037+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/common/MoneyUtil.java": {
+      "hash": "8370ef6d465156459fd0ffddb889fda24439a7d338442cfe45bcc7326ab1662b",
+      "modified": "2026-09-18T14:46:44.698766+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/job/SettlementItemProcessor.java": {
+      "hash": "d13eb9d85aab1ac24cd45154fee2081da345670d79fbb18688160a2c0c096437",
+      "modified": "2026-09-18T14:46:44.703326+00:00"
+    },
+    "settlement-batch:src/test/java/kr/co/sellflow/settlement/job/SettlementItemProcessorTest.java": {
+      "hash": "b0167b75f3a14f1932f341aa7c01a09be13333811b4a985a487d921d4de2aaaa",
+      "modified": "2026-09-18T14:46:44.670093+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    }
+  }
+}

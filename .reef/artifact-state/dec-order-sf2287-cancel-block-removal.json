@@ -1,0 +1,42 @@
+{
+  "artifact_id": "DEC-ORDER-SF2287-CANCEL-BLOCK-REMOVAL",
+  "snapshot_at": "2026-09-18T22:22:10.663625+00:00",
+  "sources": {
+    "order-service:TASK.md": {
+      "hash": "ea25de3c8544d204d3dda8ab02b78d1f00a1272d79e2935c085c361d9ce413ee",
+      "modified": "2026-09-18T14:46:44.747294+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/domain/OrderStatus.java": {
+      "hash": "b40d15f002a07e39d459c5166b806fa5f7239c80143869912c004f9e34b64208",
+      "modified": "2026-09-18T14:46:44.838622+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/legacy/OrderCancelServiceV1.java": {
+      "hash": "688c132020d0624909c970876fa5faa9d5485d652639fa1a80242f288bee53a0",
+      "modified": "2026-09-18T14:46:44.818950+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/service/OrderCancelService.java": {
+      "hash": "a666a5800447f3c67ee4465795e741f64a32f9b09365eae2137bc2e77b12b3c7",
+      "modified": "2026-09-18T14:46:44.832006+00:00"
+    },
+    "order-service:src/test/java/kr/co/sellflow/order/service/OrderCancelServiceTest.java": {
+      "hash": "e617c8811d784ba3acb78043b270b76a02148dfe194b7211ddff15e0f787e2f2",
+      "modified": "2026-09-18T14:46:44.761287+00:00"
+    },
+    "sellflow-docs:context/tickets/SF-2287.md": {
+      "hash": "480f38c2afa572c9ba673fe926a8995eaba5d5ae2035afebc8154b5b45edc6ec",
+      "modified": "2026-09-18T14:48:02.596184+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:raw/confluence-snapshots/주문-취소-정책_48213.html": {
+      "hash": "07fc092e29d3eec411126297fb3c13a7f37d091a60314278d1447bd178936c11",
+      "modified": "2026-09-18T14:48:02.619287+00:00"
+    },
+    "sellflow-docs:raw/slack/settlement-dev_2023-04_2026-08.json": {
+      "hash": "c4e302a269304d7f1eeeb8dbba3db99ef099f5ddf9ba00663699fd4f2fa6550d",
+      "modified": "2026-09-18T14:48:02.635982+00:00"
+    }
+  }
+}

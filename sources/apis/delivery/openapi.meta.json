@@ -1,0 +1,25 @@
+{
+  "service": "delivery",
+  "sub": null,
+  "source_repo": "delivery-bff",
+  "extraction_tier": 4,
+  "extraction_method": "structured code reading of Express app.<method> registrations",
+  "source_path": "src/index.ts (routes), src/deliveryStatus.ts, src/orderClient.ts, src/generated/orderApi.ts",
+  "extracted_at": "2026-09-18T00:00:00Z",
+  "tiers_attempted": [
+    {"tier": 0, "result": "no user-provided spec"},
+    {"tier": 1, "result": "no cached recipe — first run"},
+    {"tier": 2, "result": "skipped at pre-flight. No package-lock.json/yarn.lock and no node_modules; express/axios/typescript cannot be resolved, so the app cannot be started or introspected. Express has no OpenAPI reflection anyway — a runtime tier would only have given a route table."},
+    {"tier": 3, "result": "no existing spec file in the repo"},
+    {"tier": 4, "result": "success — 1 endpoint"}
+  ],
+  "endpoints": 1,
+  "uncertainties": [
+    "STALE CLIENT: src/generated/orderApi.ts was generated 2022-11-08 from order-service-openapi.json (the same 2022 file copied to sources/apis/order/openapi.json). Its cancel path /api/v1/orders/{ordNo}/cancel does not match the current OrderController path /orders/{ordNo}/cancel, and its OrderStatus union ('JUMUN_WANRYO' | 'BAESONG_JUNG' | 'BAESONG_WANRYO' | 'CHWISO' | 'BANPUM') is missing JUNGSAN_WANRYO, GYEOLJE_WANRYO and SANGPUM_JUNBI and contains JUMUN_WANRYO, which no longer exists in the enum.",
+    "The generated client's docstring — '취소 요청. 정산 완료 주문은 409 를 반환합니다.' — encodes the PRE-SF-2287 rule. Today's order-service returns 409 only for CHWISO/BANPUM and permits cancelling settled orders. Any consumer trusting this client has the settlement rule backwards.",
+    "Two different carrier base-URL env vars exist and disagree: .env.template sets CARRIER_API_BASE, but src/deliveryStatus.ts reads process.env.CARRIER_API. ORDER_API_BASE and RETRY_COUNT in .env.template are read by nothing (MAX_RETRY is hardcoded to 3).",
+    "README says Node 18; the service registry says Node 16. Not resolvable from code.",
+    "Registry lists owner_team as TODO ('물류팀 이관 논의 중 (2025-11~), 확정 전') while the repo README/package.json claim 커머스본부 물류팀. Ownership unsettled.",
+    "tests/deliveryStatus.test.ts exists but no test runner is declared in package.json scripts or devDependencies."
+  ]
+}

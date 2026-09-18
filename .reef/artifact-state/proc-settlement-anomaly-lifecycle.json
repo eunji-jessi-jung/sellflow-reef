@@ -1,0 +1,46 @@
+{
+  "artifact_id": "PROC-SETTLEMENT-ANOMALY-LIFECYCLE",
+  "snapshot_at": "2026-09-18T22:22:14.523730+00:00",
+  "sources": {
+    "sellflow-docs:context/org-chart.md": {
+      "hash": "d0002132db357367ca5fca942d20f40cea3c4bb633e83c62179aa2249f52a656",
+      "modified": "2026-09-18T15:09:28.100140+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "settlement-anomaly:README.md": {
+      "hash": "b76db38c910196d4dfbd1368f811e770c5b0ac9f6cf8a6c289092e418d16b598",
+      "modified": "2026-09-18T14:46:44.857362+00:00"
+    },
+    "settlement-anomaly:app/db.py": {
+      "hash": "6c88480ee77cf9ec2c07555df6dc052533746ec50e838c77c99e0d1f032e3bdb",
+      "modified": "2026-09-18T14:46:44.852108+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-anomaly:app/schemas.py": {
+      "hash": "e1718c1660bc2eb4fcd7b40fc1179770d680425bc20785e0393b0cacd7bf7185",
+      "modified": "2026-09-18T14:46:44.853253+00:00"
+    },
+    "settlement-anomaly:model/detector.py": {
+      "hash": "f6ad1b227533a0283a4c2cfb74201bb19cd8a6b23c87cf43ff45c5ee61d8a2e2",
+      "modified": "2026-09-18T14:46:44.860353+00:00"
+    },
+    "settlement-anomaly:model/features.py": {
+      "hash": "cb3b4a7c9cd6e35d44e616b3ef97353027d6bfc03fcfa32d8ab5e5bd179c827c",
+      "modified": "2026-09-18T14:46:44.861276+00:00"
+    },
+    "settlement-anomaly:sql/V1__anomaly_schema.sql": {
+      "hash": "9b8e139ca683dd9badae0c27cc104c789e2a1a45f461de7d959fb3196d2875e4",
+      "modified": "2026-09-18T14:46:44.863456+00:00"
+    },
+    "settlement-anomaly:tests/test_detector.py": {
+      "hash": "6b3a27a259f05db0a8eeba91990804ee6762860ad64a38cff1a9f0652495f19c",
+      "modified": "2026-09-18T14:46:44.856434+00:00"
+    }
+  }
+}

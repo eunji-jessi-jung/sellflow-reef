@@ -1,0 +1,26 @@
+{
+  "service": "settlement",
+  "sub": "anomaly",
+  "source_repo": "settlement-anomaly",
+  "extraction_tier": 4,
+  "extraction_method": "structured code reading of FastAPI route decorators (no runtime import)",
+  "source_path": "app/main.py",
+  "extracted_at": "2026-09-18T00:00:00Z",
+  "tiers_attempted": [
+    {"tier": 0, "result": "no user-provided spec"},
+    {"tier": 1, "result": "no cached recipe — first run"},
+    {"tier": 2, "result": "skipped at pre-flight. Not installable (no venv, no lockfile); worse, app/main.py calls AnomalyDetector.load(\"model/artifacts/iforest_v3.pkl\") at module import scope and that artefact is absent from the repo, so importing the app to dump app.openapi() would raise FileNotFoundError before the routes are usable."},
+    {"tier": 3, "result": "no existing spec file in the repo"},
+    {"tier": 4, "result": "success — 2 endpoints"}
+  ],
+  "endpoints": 2,
+  "uncertainties": [
+    "Detector row-key case mismatch: app/db.py uses pymysql DictCursor, so keys come back as the SQL column names in UPPER CASE (RUN_ID, ORD_NO, SANGTAE_CD, JUNGSAN_AMT, SUSURYO), but model/detector.py reads r['sangtae_cd'], r['ord_no'], row['jungsan_amt'], row['susuryo'] in lower case. As written, detect() would KeyError on the first row. Flagged, not asserted — there may be a cursor class or column alias convention outside this repo.",
+    "README declares Python 3.9 / scikit-learn; the service registry says Python 3.11. requirements.txt pins scikit-learn 1.3.2 and does not settle the interpreter version.",
+    "model/artifacts/iforest_v3.pkl is referenced but not present in the repo. model/features.py header: '2024-11 이후 재학습 이력 없음' (no retraining since 2024-11), and a TODO from 2025-02-10 says cancel_after_settle_flag effectively decides the outcome on its own.",
+    "model/features.py lists four features (amount_zscore, partner_daily_count, cancel_after_settle_flag, fee_rate_delta) but detector._amount_score feeds the model only [jungsan_amt, susuryo]. The declared feature set and the scoring call do not agree.",
+    "app/schemas.py AnomalyRow (run_id, ord_no, anomaly_type, score, status) is unused and does not match the SETTLEMENT_ANOMALY columns (ANOMALY_CD, not anomaly_type; no RUN_ID column at all).",
+    ".env.template points DB_URL at a 'settlement' database, but app/db.py hardcodes database='sellflow_order' and ignores DB_URL entirely.",
+    "No scheduler in the repo. The README's '매일 03:00 트리거' depends on an unidentified external caller."
+  ]
+}

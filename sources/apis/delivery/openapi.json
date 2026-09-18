@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "delivery-bff",
+    "version": "1.3.0",
+    "description": "Extracted by reading Express route registrations directly (tier 4). Version from package.json. One public route. The service proxies a carrier tracking API with 3 retries and degrades to a stale/default response instead of erroring."
+  },
+  "servers": [{"url": "http://delivery-bff.internal:8083", "description": "app.listen(8083) in src/index.ts"}],
+  "tags": [{"name": "delivery"}],
+  "paths": {
+    "/delivery/{ordNo}": {
+      "get": {
+        "tags": ["delivery"],
+        "summary": "배송 상태 조회",
+        "operationId": "getDelivery",
+        "description": "Calls syncDeliveryStatus(ordNo), which GETs {CARRIER_API}/tracking/{ordNo} with a 3s timeout, up to MAX_RETRY=3 attempts with 500ms*attempt backoff. On total failure it returns 200 with a fabricated PREPARING status and stale:true — never a 5xx, and with no alerting ('3회 실패 시 포기한다. 별도 알림은 없다.').",
+        "parameters": [{"name": "ordNo", "in": "path", "required": true, "schema": {"type": "string"}}],
+        "responses": {
+          "200": {
+            "description": "Carrier status, or a degraded fallback",
+            "content": {
+              "application/json": {
+                "schema": {"oneOf": [{"$ref": "#/components/schemas/DeliveryStatus"}, {"$ref": "#/components/schemas/StaleDeliveryStatus"}]}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeliveryStatus": {
+        "type": "object",
+        "description": "Returned verbatim from the carrier response body; not validated.",
+        "properties": {
+          "ordNo": {"type": "string"},
+          "carrierCd": {"type": "string"},
+          "status": {"type": "string"},
+          "updatedAt": {"type": "string"}
+        }
+      },
+      "StaleDeliveryStatus": {
+        "type": "object",
+        "description": "Fallback after 3 failed carrier calls. Comment says '마지막 저장 값을 반환한다' (return the last stored value) but there is no store — status is hardcoded to PREPARING.",
+        "properties": {
+          "ordNo": {"type": "string"},
+          "status": {"type": "string", "enum": ["PREPARING"]},
+          "stale": {"type": "boolean", "enum": [true]}
+        }
+      }
+    }
+  },
+  "x-outbound-calls": {
+    "carrier": {"method": "GET", "url": "${CARRIER_API}/tracking/{ordNo}", "timeout_ms": 3000, "retries": 3},
+    "order-service": {
+      "method": "POST",
+      "url": "/api/v1/orders/{ordNo}/cancel",
+      "source": "src/generated/orderApi.ts via src/orderClient.ts",
+      "note": "Generated 2022-11-08 from the stale order-service spec. Path does not match today's OrderController (@RequestMapping(\"/orders\") + POST /{ordNo}/cancel = /orders/{ordNo}/cancel, no /api/v1 prefix). Its OrderStatus union is also 2022-era. Regeneration tracked as SF-4901, '미착수' (not started). Not reachable from any HTTP route in this service — requestCancel is exported but never called."
+    }
+  }
+}

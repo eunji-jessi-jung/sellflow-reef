@@ -1,0 +1,445 @@
+{
+  "questions": [
+    {
+      "id": "Q-001",
+      "text": "What are the system boundaries and external dependencies of order-service (PG, inventory-api, settlement-batch)?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-002",
+      "text": "What are the core entities in order-service and how do ORDER_MST, ORDER_DTL, ORDER_CANCEL, ORDER_DELIVERY, ORDER_STATUS_HIST and ORDER_EVENT_OUTBOX relate?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-003",
+      "text": "What is the OrderStatus lifecycle, and which transitions are enforced in code versus written by another service?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-004",
+      "text": "Which cancel reason codes exist in CancelReason, and where is the cost-bearing / restock policy for each code actually defined?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-005",
+      "text": "Which order states block cancellation after SF-2287, and does the code still check settlement state?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-006",
+      "text": "How does OrderEventPublisher write order.cancelled, and who consumes ORDER_EVENT_OUTBOX?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-007",
+      "text": "Is InventoryClient.restore() actually invoked anywhere in the cancel path?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-008",
+      "text": "What API surface does order-service actually expose today, and how far has the 2022 OpenAPI spec drifted from it?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-009",
+      "text": "How is authentication and authorisation enforced in order-service (bearerAuth in the spec versus code)?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "unanswered"
+    },
+    {
+      "id": "Q-010",
+      "text": "What do the Flyway migrations V1-V24 reveal about schema history, including the V15/V16 rename-and-revert?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-011",
+      "text": "Why is OrderCancelServiceV1 still present and what does its settlement check tell us about pre-SF-2287 policy?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-012",
+      "text": "Which order-service tests are disabled, and what behaviour is therefore unverified in CI?",
+      "source": "order-service",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-013",
+      "text": "How is dailySettlementJob composed (reader, processor, writer, tasklet) and what schedule triggers it?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-014",
+      "text": "What SQL selects settlement targets, and does it exclude cancelled orders?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-015",
+      "text": "How is the partner fee computed, and is PARTNER_CONTRACT.FEE_RATE actually used?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-016",
+      "text": "What does MarkSettledTasklet write into ORDER_MST, and under what ownership agreement?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-017",
+      "text": "How does OrderEventRelayJob move rows from ORDER_EVENT_OUTBOX into CANCEL_RECON_QUEUE?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-018",
+      "text": "Is CancelReconciler scheduled anywhere, and what happens to CANCEL_RECON_QUEUE rows if it is not?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-019",
+      "text": "What are the settlement entities (SETTLEMENT_RUN, SETTLEMENT_DTL, CANCEL_RECON_QUEUE, SETTLEMENT_ADJUSTMENT, PARTNER_CONTRACT, SETTLEMENT_RUN_LOG) and which of them are written by code?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-020",
+      "text": "Which database instance does settlement-batch use, and what does sharing it with order-service imply?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-021",
+      "text": "How do the two MoneyUtil implementations differ between order-service and settlement-batch?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-022",
+      "text": "What are the settlement-batch deployment and scheduling mechanics (Quartz clustering, CD workflows)?",
+      "source": "settlement-batch",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-023",
+      "text": "What anomaly types does settlement-anomaly detect and how is each decided (model versus rule)?",
+      "source": "settlement-anomaly",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-024",
+      "text": "What does settlement-anomaly read and write, and which tables does it join across service boundaries?",
+      "source": "settlement-anomaly",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-025",
+      "text": "What happens to a row in SETTLEMENT_ANOMALY after detection — who acts on it?",
+      "source": "settlement-anomaly",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-026",
+      "text": "How is the detection model loaded and versioned, and when was it last retrained?",
+      "source": "settlement-anomaly",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-027",
+      "text": "Is the /detect endpoint authenticated, and what triggers it?",
+      "source": "settlement-anomaly",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-028",
+      "text": "What is the inventory data model (stock_item, RESTORE_LOG) and how does its vocabulary map to the order domain?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-029",
+      "text": "Which cancel reason codes trigger restock in inventory-api and where is that rule duplicated?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-030",
+      "text": "Which database does inventory-api actually connect to, and does that match its README and .env.sample?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered",
+      "answered_by": "SYS-INVENTORY",
+      "answered": "2026-09-19"
+    },
+    {
+      "id": "Q-031",
+      "text": "Does the restock endpoint's path and request shape match what order-service's InventoryClient calls?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered",
+      "answered_by": "API-INVENTORY",
+      "answered": "2026-09-19"
+    },
+    {
+      "id": "Q-032",
+      "text": "How is authentication handled on the inventory-api FastAPI app?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered",
+      "answered_by": "SYS-INVENTORY",
+      "answered": "2026-09-19"
+    },
+    {
+      "id": "Q-033",
+      "text": "How does restock handle multi-line orders and warehouse-level stock?",
+      "source": "inventory-api",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-034",
+      "text": "What does delivery-bff proxy, and what does it return when the carrier API fails?",
+      "source": "delivery-bff",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-035",
+      "text": "What does src/generated/orderApi.ts assume about order-service, and is that assumption still true?",
+      "source": "delivery-bff",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-036",
+      "text": "Does delivery-bff hold any persistent data of its own?",
+      "source": "delivery-bff",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "unanswered"
+    },
+    {
+      "id": "Q-037",
+      "text": "How is delivery-bff authenticated and who owns it?",
+      "source": "delivery-bff",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-038",
+      "text": "What runtime and configuration does delivery-bff need, and does the registry entry match package.json?",
+      "source": "delivery-bff",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-039",
+      "text": "What is the full path of an order.cancelled event from order-service to a settlement adjustment, and where does it stop?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-040",
+      "text": "How do Order and Settlement divide responsibility for the JUNGSAN_WANRYO status?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-041",
+      "text": "What contract exists between Order and Inventory for cancel-time restock, and is it honoured on both sides?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-042",
+      "text": "What contract exists between Order and Delivery, and how stale is the generated client?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "unanswered"
+    },
+    {
+      "id": "Q-043",
+      "text": "Which teams own which services, and where does the registry disagree with the org chart or with the code?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-044",
+      "text": "What does the documented settlement-correction procedure (v1.1) require, and which steps have no system support?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-045",
+      "text": "How large is the unprocessed settlement-correction backlog, and what evidence establishes it?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-046",
+      "text": "Where do the same domain terms mean different things across services (SANGPUM_CD/sku, 정산 상태, 취소)?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-047",
+      "text": "Which documents describe the cancellation policy, and which of them are contradicted by the running code?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "partial"
+    },
+    {
+      "id": "Q-048",
+      "text": "What runtime topology do the five services form (processes, schedules, shared databases)?",
+      "source": "cross-system",
+      "phase": "snorkel",
+      "added": "2026-09-18",
+      "status": "answered"
+    },
+    {
+      "id": "Q-049",
+      "text": "Do the long-lived order-service environments match what a clean V1-V24 run now produces? The chain applies cleanly, but V23's consolidated baseline was never written and nothing reconciles the migrations against a live schema. The presence of TEMP_FLAG, JEOKRIPGEUM or HALIN_GEUMAEK in any environment would show it never received V13 or V20.",
+      "source": "detected during update on 2026-09-19",
+      "phase": "update",
+      "added": "2026-09-19",
+      "status": "unanswered",
+      "related_artifacts": [
+        "SCH-ORDER-MIGRATION-HISTORY",
+        "SCH-ORDER",
+        "RISK-ORDER"
+      ]
+    },
+    {
+      "id": "Q-050",
+      "text": "inventory-api's RESTORE_LOG now has six columns and two indexes (ORD_NO and SAYU_CD) and still no writer. Was the audit trail deliberately deferred, or is the missing INSERT in the restock handler an oversight? The table has no warehouse column and no affected-row count, so it could not record the two known failure modes even if it were written.",
+      "source": "detected during update on 2026-09-19",
+      "phase": "update",
+      "added": "2026-09-19",
+      "status": "unanswered",
+      "related_artifacts": [
+        "PROC-INVENTORY-RESTORE-LOG-LIFECYCLE",
+        "RISK-INVENTORY",
+        "SCH-INVENTORY"
+      ]
+    },
+    {
+      "id": "Q-051",
+      "text": "ORDER_DELIVERY and ORDER_STATUS_HIST have been created by order-service V1 since 2019 and are read and written by nothing in any of the five repos. Do they hold rows written out of band, or have they been empty for seven years?",
+      "source": "detected during update on 2026-09-19",
+      "phase": "update",
+      "added": "2026-09-19",
+      "status": "unanswered",
+      "related_artifacts": [
+        "SCH-ORDER",
+        "SCH-DELIVERY",
+        "PAT-SELLFLOW-ORPHANED-COMPONENTS"
+      ]
+    },
+    {
+      "id": "Q-052",
+      "text": "order-service V21 indexes ORDER_MST(JUNGSAN_RUN_ID) and V24 prefix-indexes ORDER_MST(GOGAEK_MEMO(64)); no query in any repo touches either column. Which queries were these indexes added for, and do they run outside these repositories?",
+      "source": "detected during update on 2026-09-19",
+      "phase": "update",
+      "added": "2026-09-19",
+      "status": "unanswered",
+      "related_artifacts": [
+        "SCH-ORDER-MIGRATION-HISTORY",
+        "PAT-SELLFLOW-ORPHANED-COMPONENTS"
+      ]
+    }
+  ]
+}

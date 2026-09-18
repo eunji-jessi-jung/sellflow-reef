@@ -1,0 +1,58 @@
+{
+  "artifact_id": "PAT-SELLFLOW-CROSS-SERVICE-AUTH",
+  "snapshot_at": "2026-09-18T22:22:11.990423+00:00",
+  "sources": {
+    "delivery-bff:package.json": {
+      "hash": "1bd4346a59a51ad89365eafb2751852cdd5395251ef841eb4799bd252fb1d346",
+      "modified": "2026-09-18T14:46:44.721078+00:00"
+    },
+    "delivery-bff:src/index.ts": {
+      "hash": "30a378066119a1773522831c39fd819d09551021b8ccd38fe3c6925ec08c813d",
+      "modified": "2026-09-18T14:46:44.728620+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "order-service:build.gradle": {
+      "hash": "b4755be988a42a3e332e68dd8322aa7e4c4ac4aa4f9b7e3e1a4d2a47bb5601db",
+      "modified": "2026-09-18T14:46:44.745613+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/config/WebConfig.java": {
+      "hash": "ba372f20b2edb06a272c3e8928115789b08a62751f16b66eff8bfeea30c12c5d",
+      "modified": "2026-09-18T14:46:44.812514+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/controller/OrderController.java": {
+      "hash": "8b10a946c45ced803e74733bbfb4d190628bf511d4aa0337eefba3a7a6223bc2",
+      "modified": "2026-09-18T14:46:44.820911+00:00"
+    },
+    "settlement-anomaly:app/main.py": {
+      "hash": "de8b4e1675b16a0916a5ae253edafaaae778e27d4ff2c57011871fcd2fdc94ad",
+      "modified": "2026-09-18T14:46:44.854112+00:00"
+    },
+    "settlement-batch:src/main/java/kr/co/sellflow/settlement/tasklet/MarkSettledTasklet.java": {
+      "hash": "b9674c0473f6a8b690a279bf179c39018d0955f81fa1b65a62afc5345d4cc310",
+      "modified": "2026-09-18T14:46:44.708822+00:00"
+    },
+    "settlement-batch:src/main/resources/application.yml": {
+      "hash": "690f6dea321bd0f292ad1628a84ad7243dbb958148d6b77aaec278484100827a",
+      "modified": "2026-09-18T14:46:44.686110+00:00"
+    },
+    "sellflow-docs:context/handover/2025-03_정산팀_인수인계.md": {
+      "hash": "b527733f1ca133a5827ba162535ef8d8eb6b2fa1083fb5a3ce148bdaeba6cc57",
+      "modified": "2026-09-18T14:48:02.560700+00:00"
+    },
+    "sellflow-docs:context/registry/services.yaml": {
+      "hash": "c29df389e79e4494bfe7d24cb553e6a0918128096f43b7f4c95ef52cfbe065a8",
+      "modified": "2026-09-18T14:48:02.589309+00:00"
+    },
+    "sellflow-docs:raw/specs/order-service-openapi.json": {
+      "hash": "95b434288cbe31de7e46d93af2d35dddd31d4565f68dd33e5e0f997773f127b8",
+      "modified": "2026-09-18T14:48:02.651161+00:00"
+    }
+  }
+}

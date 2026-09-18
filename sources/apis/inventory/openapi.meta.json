@@ -1,0 +1,24 @@
+{
+  "service": "inventory",
+  "sub": null,
+  "source_repo": "inventory-api",
+  "extraction_tier": 4,
+  "extraction_method": "structured code reading of FastAPI route decorators (no runtime import)",
+  "source_path": "app/main.py, app/routers.py",
+  "extracted_at": "2026-09-18T00:00:00Z",
+  "tiers_attempted": [
+    {"tier": 0, "result": "no user-provided spec"},
+    {"tier": 1, "result": "no cached recipe — first run"},
+    {"tier": 2, "result": "skipped at pre-flight. requirements.txt pins fastapi/uvicorn/pymysql but no venv exists and the fixture is not installable; app.main imports app.db which imports pymysql at module scope, so importing the app to dump app.openapi() would fail on ImportError before any route is registered."},
+    {"tier": 3, "result": "no existing spec file anywhere in the repo"},
+    {"tier": 4, "result": "success — 2 mounted endpoints, 2 unmounted"}
+  ],
+  "endpoints": 2,
+  "unmounted_endpoints": 2,
+  "uncertainties": [
+    "app/routers.py's APIRouter is never included by app/main.py, so GET /inventory/stock/{sku_cd} and GET /inventory/health are dead. This matters: order-service's InventoryClient POSTs to {base}/inventory/restore?ordNo=..&reason=.. — a path that exists in NEITHER the mounted app nor the unmounted router, and with a query-string contract rather than the JSON body /stock/restock expects. The order->inventory restock call appears to be broken or routed via something not in this repo. Flagged as uncertain, not asserted.",
+    "app/db.py connects to database 'sellflow_order' with user 'sellflow', contradicting README/registry ('MySQL (inventory)') and .env.sample (DB_URL=mysql://inventory:@localhost:3306/inventory). DB_URL in config.py is read but never used by db.py. The service in fact reads and writes on the shared order instance.",
+    "app/models.py dataclasses (Stock.sku_cd/qty, RestoreLog) do not match the live SQL (stock_item.sku/available_qty/reserved_qty). They are not used by any route.",
+    "README claims Python 3.9 and 재고팀 ownership; nothing in code confirms the runtime version."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "artifact_id": "PROC-INVENTORY-ERROR-HANDLING",
+  "snapshot_at": "2026-09-18T22:22:13.191976+00:00",
+  "sources": {
+    "inventory-api:Dockerfile": {
+      "hash": "c614e55b95b0ed924f9b621b0f4fa6278ca972822c8223bd572049386eb0af75",
+      "modified": "2026-09-18T14:46:44.631406+00:00"
+    },
+    "inventory-api:alembic/versions/20230414_1120-3f9a_add_restore_log.py": {
+      "hash": "2055a3b4636cdd911998ae613bc72655e24405bc9b9bd9951e39ef14a30af64b",
+      "modified": "2026-09-18T21:41:41.784233+00:00"
+    },
+    "inventory-api:alembic/versions/20240902_0931-8ba1_add_restore_log_reason_i.py": {
+      "hash": "6cacaf9f9c32fd4cea1ed8fc6d6dfaaf37b22f00d52f40e6fb6a02147e35cba3",
+      "modified": "2026-09-18T21:41:41.785224+00:00"
+    },
+    "inventory-api:app/config.py": {
+      "hash": "6949f799ba1e7fe0fc02f83666b8785d8359983e1f9e74715369bc6b8217ad12",
+      "modified": "2026-09-18T14:46:44.624844+00:00"
+    },
+    "inventory-api:app/db.py": {
+      "hash": "55dec226d7285c67ae89b0364ca8e056625e45c52d0f2ee7952845eecaae8d8b",
+      "modified": "2026-09-18T14:46:44.623897+00:00"
+    },
+    "inventory-api:app/main.py": {
+      "hash": "86cfaa2ee1f14b6161bb2c9dd555d2407e33bb079e563024654db1fe7747af9e",
+      "modified": "2026-09-18T14:46:44.626690+00:00"
+    },
+    "inventory-api:requirements.txt": {
+      "hash": "971987058950d4ebd887522e99f4ae8dc63f3e61906bc547250a8bfe4bb140ea",
+      "modified": "2026-09-18T21:41:41.787629+00:00"
+    },
+    "inventory-api:sql/V1__stock.sql": {
+      "hash": "ce1a52b5ead11cbe45bd0c8b48a8baae82fb421cdcbdac4a71213c6ce0bf5d01",
+      "modified": "2026-09-18T14:46:44.644101+00:00"
+    },
+    "order-service:src/main/java/kr/co/sellflow/order/client/InventoryClient.java": {
+      "hash": "7dca935cee29496751c8af294c62171f4e5ea380add78454777f44435c55ff61",
+      "modified": "2026-09-18T14:46:44.848736+00:00"
+    },
+    "sellflow-docs:context/business-rules.md": {
+      "hash": "1f5a70bd73b809e4b383458fe9859c5ecc629990eee435a4381b2e1628825ccb",
+      "modified": "2026-09-18T15:09:28.097149+00:00"
+    }
+  }
+}
