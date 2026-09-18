@@ -20,6 +20,7 @@ known_unknowns:
   - "What the payment request actually is. SettlementItemWriter's javadoc describes an irreversible transmission and a next-business-day bank transfer; the only code is an INSERT into SETTLEMENT_DTL, so the transmitting component is outside these repos and is not a flow catalogued here."
   - "Whether F5 (POST /detect) is triggered by an unversioned crontab outside the repos. The README claims 03:00 daily; no scheduler was found, so either an external trigger exists or the flow has never run."
   - "Whether SETTLEMENT_ADJUSTMENT exists in the deployed schema. F3's terminal write targets it and no migration in any repo creates it."
+  - "Whether F1 and F2 are deployed and firing today. QuartzConfig registers both triggers and the 41-month queue export proves they produced over that window, but no deployment manifest, prod profile or run log is in any of the five repos, so the present-tense claim is an inference from data."
   - "Quartz misfire behaviour for both triggers. Neither declares a misfire instruction, so the defaults apply and the effective behaviour after a node outage was not verified against a deployed configuration."
 tags:
   - settlement
@@ -135,11 +136,22 @@ Sibling artifacts go deeper on individual flows ([[PROC-SETTLEMENT-DAILY-BATCH]]
 
 | Flow | Trigger | Reads | Writes | Runs? |
 |---|---|---|---|---|
-| **F1** `dailySettlementJob` | Quartz cron `0 0 2 * * ?` Asia/Seoul | `ORDER_MST`, `ORDER_DTL`, `SETTLEMENT_RUN`, `SETTLEMENT_DTL` | `SETTLEMENT_DTL`, `ORDER_MST` | **Yes** |
-| **F2** `orderEventRelayJob` | Quartz simple, every 10 min, forever | `ORDER_EVENT_OUTBOX`, `SETTLEMENT_DTL` | `CANCEL_RECON_QUEUE`, `ORDER_EVENT_OUTBOX` | **Yes** |
+| **F1** `dailySettlementJob` | Quartz cron `0 0 2 * * ?` Asia/Seoul | `ORDER_MST`, `ORDER_DTL`, `SETTLEMENT_RUN`, `SETTLEMENT_DTL` | `SETTLEMENT_DTL`, `ORDER_MST` | **Yes — inferred**<sup>†</sup> |
+| **F2** `orderEventRelayJob` | Quartz simple, every 10 min, forever | `ORDER_EVENT_OUTBOX`, `SETTLEMENT_DTL` | `CANCEL_RECON_QUEUE`, `ORDER_EVENT_OUTBOX` | **Yes — inferred**<sup>†</sup> |
 | **F3** `CancelReconciler` | none — no registration, no caller | `CANCEL_RECON_QUEUE` | `SETTLEMENT_ADJUSTMENT`, `CANCEL_RECON_QUEUE` | **No** |
 | **F4** `SettlementReportWriter` | none — no caller | nothing | nothing (a log line) | **No** |
 | **F5** `POST /detect` | external HTTP, caller unidentified | `SETTLEMENT_DTL`, `SETTLEMENT_RUN`, `ORDER_MST` | `SETTLEMENT_ANOMALY` | **Unknown — no caller found** |
+
+<sup>†</sup> **What "runs" means here, and what it does not.** Three claims have to stay
+separate. (a) `QuartzConfig` registers both triggers — verified from code. (b) The service
+registry records `schedule: 매일 02:00 KST` — a document, consistent with the cron. (c) That
+the job is deployed and firing in production — **not verifiable from these repositories**, as
+[[API-SETTLEMENT-BATCH]] states, because `deploy.sh` and any production profile live outside
+them. The inference to **Yes** rests on data rather than on deployment evidence: the
+2026-09-01 export shows `CANCEL_RECON_QUEUE` rows in all 41 consecutive months since 2023-04,
+and F2 inserts a row only when `SETTLEMENT_DTL` already holds the order — so F1 and F2 were
+both producing over that window. That is strong evidence of past execution, not a statement
+about the current deployment.
 
 ### Flow dependency diagram
 

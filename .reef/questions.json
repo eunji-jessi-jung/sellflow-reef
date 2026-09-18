@@ -6,7 +6,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-002",
@@ -14,7 +15,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-003",
@@ -22,7 +24,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-004",
@@ -30,7 +33,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-005",
@@ -38,7 +42,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-006",
@@ -46,7 +51,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-007",
@@ -54,7 +60,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-008",
@@ -62,7 +69,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-009",
@@ -70,7 +78,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "unanswered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-010",
@@ -78,7 +87,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-011",
@@ -86,7 +96,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-012",
@@ -94,7 +105,8 @@
       "source": "order-service",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-013",
@@ -102,7 +114,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-014",
@@ -110,7 +123,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-015",
@@ -118,7 +132,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-016",
@@ -126,7 +141,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-017",
@@ -134,7 +150,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-018",
@@ -142,7 +159,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-019",
@@ -150,7 +168,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-020",
@@ -158,7 +177,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-021",
@@ -166,7 +186,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-022",
@@ -174,7 +195,8 @@
       "source": "settlement-batch",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-023",
@@ -182,7 +204,8 @@
       "source": "settlement-anomaly",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-024",
@@ -190,7 +213,8 @@
       "source": "settlement-anomaly",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-025",
@@ -198,7 +222,8 @@
       "source": "settlement-anomaly",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-026",
@@ -206,7 +231,8 @@
       "source": "settlement-anomaly",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "partial",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-027",
@@ -214,7 +240,8 @@
       "source": "settlement-anomaly",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-028",
@@ -222,7 +249,8 @@
       "source": "inventory-api",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-029",
@@ -230,7 +258,8 @@
       "source": "inventory-api",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-030",
@@ -239,6 +268,7 @@
       "phase": "snorkel",
       "added": "2026-09-18",
       "status": "answered",
+      "last_tested": "2026-09-19",
       "answered_by": "SYS-INVENTORY",
       "answered": "2026-09-19"
     },
@@ -249,6 +279,7 @@
       "phase": "snorkel",
       "added": "2026-09-18",
       "status": "answered",
+      "last_tested": "2026-09-19",
       "answered_by": "API-INVENTORY",
       "answered": "2026-09-19"
     },
@@ -259,6 +290,7 @@
       "phase": "snorkel",
       "added": "2026-09-18",
       "status": "answered",
+      "last_tested": "2026-09-19",
       "answered_by": "SYS-INVENTORY",
       "answered": "2026-09-19"
     },
@@ -268,7 +300,8 @@
       "source": "inventory-api",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-034",
@@ -276,7 +309,8 @@
       "source": "delivery-bff",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-035",
@@ -284,7 +318,8 @@
       "source": "delivery-bff",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-036",
@@ -292,7 +327,8 @@
       "source": "delivery-bff",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "unanswered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-037",
@@ -300,7 +336,8 @@
       "source": "delivery-bff",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-038",
@@ -308,7 +345,8 @@
       "source": "delivery-bff",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-039",
@@ -316,7 +354,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-040",
@@ -324,7 +363,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-041",
@@ -332,7 +372,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-042",
@@ -340,7 +381,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "unanswered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-043",
@@ -348,7 +390,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-044",
@@ -356,7 +399,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-045",
@@ -364,7 +408,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-046",
@@ -372,7 +417,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-047",
@@ -380,7 +426,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "partial"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-048",
@@ -388,7 +435,8 @@
       "source": "cross-system",
       "phase": "snorkel",
       "added": "2026-09-18",
-      "status": "answered"
+      "status": "answered",
+      "last_tested": "2026-09-19"
     },
     {
       "id": "Q-049",
@@ -396,7 +444,8 @@
       "source": "detected during update on 2026-09-19",
       "phase": "update",
       "added": "2026-09-19",
-      "status": "unanswered",
+      "status": "partial",
+      "last_tested": "2026-09-19",
       "related_artifacts": [
         "SCH-ORDER-MIGRATION-HISTORY",
         "SCH-ORDER",
@@ -409,7 +458,8 @@
       "source": "detected during update on 2026-09-19",
       "phase": "update",
       "added": "2026-09-19",
-      "status": "unanswered",
+      "status": "partial",
+      "last_tested": "2026-09-19",
       "related_artifacts": [
         "PROC-INVENTORY-RESTORE-LOG-LIFECYCLE",
         "RISK-INVENTORY",
@@ -422,7 +472,8 @@
       "source": "detected during update on 2026-09-19",
       "phase": "update",
       "added": "2026-09-19",
-      "status": "unanswered",
+      "status": "partial",
+      "last_tested": "2026-09-19",
       "related_artifacts": [
         "SCH-ORDER",
         "SCH-DELIVERY",
@@ -435,7 +486,8 @@
       "source": "detected during update on 2026-09-19",
       "phase": "update",
       "added": "2026-09-19",
-      "status": "unanswered",
+      "status": "partial",
+      "last_tested": "2026-09-19",
       "related_artifacts": [
         "SCH-ORDER-MIGRATION-HISTORY",
         "PAT-SELLFLOW-ORPHANED-COMPONENTS"

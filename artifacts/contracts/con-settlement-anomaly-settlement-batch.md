@@ -280,7 +280,7 @@ The verification for the trigger claim is worth setting out step by step, becaus
 
 So the contract's current state is: a well-formed, correctly-named, correctly-joined SELECT against live production tables, with no scheduled moment at which it runs, and — from the row-key case mismatch in step (6) of the diagram — a consumer that would fail on the first returned row if it did.
 
-The producer side, by contrast, runs. `SETTLEMENT_DTL` is written nightly. The columns the contract depends on exist today exactly as the query names them; the contract is *currently satisfied*, and satisfied by coincidence rather than by any commitment.
+The producer side, by contrast, has demonstrably produced. `SETTLEMENT_DTL` is written by a job whose Quartz trigger is registered in code, and the 2026-09-01 queue export implies it populated the table in all 41 months from 2023-04 — the relay only enqueues an order that is already in `SETTLEMENT_DTL`. Whether it is deployed and firing tonight is not verifiable from these repositories; see [[API-SETTLEMENT-BATCH]] and [[PROC-SETTLEMENT-FLOW-CATALOG]]. The columns the contract depends on exist today exactly as the query names them; the contract is *currently satisfied*, and satisfied by coincidence rather than by any commitment.
 
 ## Impact Analysis
 
