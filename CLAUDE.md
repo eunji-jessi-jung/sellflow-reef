@@ -42,7 +42,7 @@ Three service pairs have no contract artifact — Inventory×Settlement, Deliver
 - `artifacts/risks/risk-sellflow-doc-drift.md` — every authoritative document describes behaviour the code no longer has; the 2026 automation plan is sized against a 2023 estimate the data contradicts by 14-16x.
 - `artifacts/risks/risk-order.md`, `risk-inventory.md`, `risk-delivery.md` — dead code, disabled tests, broken caller contracts per service.
 - No service authenticates anything in code. The order OpenAPI spec declares bearer JWT; no enforcement exists in any repo. See the four `proc-*-auth` artifacts.
-- 532 known_unknowns are recorded across the 80 artifacts. The recurring themes: what runs in production versus what is in the repos, whether manual work happens outside the systems, and who owns the step after an event is published.
+- 533 known_unknowns are recorded across the 80 artifacts. The recurring themes: what runs in production versus what is in the repos, whether manual work happens outside the systems, and who owns the step after an event is published.
 
 ## Artifact counts
 

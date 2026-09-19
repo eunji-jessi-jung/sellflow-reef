@@ -59,7 +59,7 @@ estimate, not a sum of amounts actually paid.
 [RISK-SETTLEMENT-RECON-BACKLOG](artifacts/risks/risk-settlement-recon-backlog.md)
 carries five caveats on that figure and tells you to re-extract before citing it.
 
-532 `known_unknowns` are recorded across the 80 artifacts.
+533 `known_unknowns` are recorded across the 80 artifacts.
 **[.reef/questions-for-owner.md](.reef/questions-for-owner.md)** turns the ones
 only a human can settle into 67 ranked questions, each stating what it would
 unblock and what was already checked — so the person who knows can answer without
